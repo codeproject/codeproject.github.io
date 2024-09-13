@@ -1,0 +1,93 @@
+site_name: CodeProject.AI Server v2.8.1
+site_description: A Guide to using and developing with CodeProject.AI Server
+copyright: CodeProject Solutions Inc
+
+use_directory_urls: false
+
+theme:
+    name: material
+#    custom_dir: 'aspx_override'
+    logo: img/FavIcon.png
+    features:
+     - navigation.sections
+     - navigation.top
+#    - navigation.tabs
+#   palette:
+#        primary: #f90   See https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/
+#                        Currently we're overriding colours using the site.css file
+
+nav:
+    - Home: index.md
+    - 'CodeProject.AI: Start here':
+        - 'CodeProject.AI on Windows'  : 'install/install_on_windows.md'
+        - 'CodeProject.AI in Docker'   : 'install/running_in_docker.md'
+        - 'CodeProject.AI on Linux'    : 'install/install_on_linux.md'
+        - 'CodeProject.AI on macOS'    : 'install/install_on_macos.md'
+        - 'CodeProject.AI on a Jetson' : 'install/install_on_jetson.md'
+        - 'CodeProject.AI Server Mesh' : 'features/mesh.md'
+    - 'Development Guide':
+        - 'Setting up the Dev Environment': 'devguide/install_dev.md'
+        - 'The modulesettings files': 'devguide/modulesettings_json.md'
+        - 'Install scripts': 'devguide/install_scripts.md'
+        - 'Python requirements files': 'devguide/python_req_text.md'
+        - 'Using Triggers': 'devguide/triggers.md'
+        - Adding New Modules:
+            - 'So you want to add new module to CodeProject.AI': 'devguide/module_examples/adding_new_modules.md'
+            - 'Adding your own Python module': 'devguide/module_examples/add_python_module.md'
+            - 'Adding your own .NET module: Sentiment Analysis': 'devguide/module_examples/add_net_module-sentiment.md'
+            - 'Adding your own .NET module: Portrait Filter': 'devguide/module_examples/add_net_module-portrait.md'
+        - 'How to add AI to an Application': 'why/how_to_add_AI_to_an_app.md'
+        - 'Who is using CodeProject.AI?': 'why/integrations.md'
+    - 'API & Settings':
+        - 'API Reference': 'api/api_reference.md'
+        - 'Module Settings': 'api/module_settings.md'
+    - 'FAQ': 
+        - 'faq/windows-installer.md'
+        - 'faq/docker.md' 
+        - 'faq\mesh-faq.md'
+        - 'faq/virtual-machine.md'
+        - 'faq/gpu.md' 
+        - 'faq/coral.md' 
+        - 'faq/raspberry-pi.md'
+        - 'faq\jetson.md'
+        - 'faq/home-assistant.md'
+        - 'faq/blue-iris.md'
+        - 'faq/dev-environment.md'
+        - 'faq/ubuntu-installer.md'
+    - 'About':
+        - 'About CodeProject.AI': 'about/about.md'
+        - 'License': 'about/license.md'
+        - 'Release Notes': 'about/release-notes.md'
+        - 'Project Home': 'https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way'
+        - 'Discussions': 'https://www.codeproject.com/Feature/CodeProjectAI-Discussions.aspx'
+        # - 'GitHub': 'https://github.com/codeproject/CodeProject.AI-Server'
+
+extra_css:
+    - css/site.css
+
+# plugins:
+#    - tags
+
+extra:
+  homepage: https://www.codeproject.com/
+  analytics:
+    provider: google
+    property: G-YZNPNQ0F2S
+
+markdown_extensions:
+    - meta
+    - attr_list
+    - tables
+    - admonition
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+    - pymdownx.details
+    - pymdownx.tabbed:
+        alternate_style: true 
+    - pymdownx.highlight:
+        anchor_linenums: true
+        auto_title: true
+
+# add   - pymdownx.caret and - pymdownx.tilde for super- and sub-script support
+# Comment system:  https://squidfunk.github.io/mkdocs-material/setup/adding-a-comment-system/

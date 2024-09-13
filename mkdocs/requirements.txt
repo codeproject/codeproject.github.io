@@ -1,0 +1,6 @@
+#! Python3.9
+
+mkdocs
+mkdocs-material
+
+# last line left blank
