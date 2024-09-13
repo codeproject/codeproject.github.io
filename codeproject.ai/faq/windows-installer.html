@@ -1,0 +1,1802 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Guide to using and developing with CodeProject.AI Server">
+      
+      
+      
+      
+        <link rel="prev" href="../api/module_settings.html">
+      
+      
+        <link rel="next" href="docker.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Windows Installer - CodeProject.AI Server v2.8.1</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.35f28582.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../css/site.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-YZNPNQ0F2S"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-YZNPNQ0F2S",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-YZNPNQ0F2S",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cant-find-custom-models" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.codeproject.com/" title="CodeProject.AI Server v2.8.1" class="md-header__button md-logo" aria-label="CodeProject.AI Server v2.8.1" data-md-component="logo">
+      
+  <img src="../img/FavIcon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeProject.AI Server v2.8.1
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Windows Installer
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.codeproject.com/" title="CodeProject.AI Server v2.8.1" class="md-nav__button md-logo" aria-label="CodeProject.AI Server v2.8.1" data-md-component="logo">
+      
+  <img src="../img/FavIcon.png" alt="logo">
+
+    </a>
+    CodeProject.AI Server v2.8.1
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CodeProject.AI: Start here
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            CodeProject.AI: Start here
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/install_on_windows.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI on Windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/running_in_docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI in Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/install_on_linux.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI on Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/install_on_macos.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI on macOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/install_on_jetson.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI on a Jetson
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/mesh.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI Server Mesh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Development Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Development Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devguide/install_dev.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setting up the Dev Environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devguide/modulesettings_json.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The modulesettings files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devguide/install_scripts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devguide/python_req_text.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python requirements files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devguide/triggers.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Triggers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Adding New Modules
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Adding New Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devguide/module_examples/adding_new_modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    So you want to add new module to CodeProject.AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devguide/module_examples/add_python_module.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding your own Python module
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devguide/module_examples/add_net_module-sentiment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding your own .NET module: Sentiment Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devguide/module_examples/add_net_module-portrait.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding your own .NET module: Portrait Filter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../why/how_to_add_AI_to_an_app.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to add AI to an Application
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../why/integrations.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Who is using CodeProject.AI?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    API & Settings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API & Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/api_reference.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../api/module_settings.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Windows Installer
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="windows-installer.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Windows Installer
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cant-find-custom-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can't find custom models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#port-already-in-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port already in use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-is-not-being-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU is not being used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codeprojectai-server-stops-randomly-often-at-the-same-time-of-the-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      CodeProject.AI Server stops randomly (often at the same time of the day)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oserror-winerror-1455-the-paging-file-is-too-small-for-this-operation-to-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      OSError: [WinError 1455] The paging file is too small for this operation to complete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-fails-to-start-with-systemmanagementmanagementexception-invalid-class-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server fails to start with 'System.Management.ManagementException: Invalid class' error
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Server fails to start with 'System.Management.ManagementException: Invalid class' error">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#see" class="md-nav__link">
+    <span class="md-ellipsis">
+      See
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-fails-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module fails to start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-of-faceprocessing-reports-a-urllib3-error-which-can-be-ignored" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation of FaceProcessing reports a urllib3 Error which can be ignored
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usbdk-installation-failing-for-objectdetectioncoral" class="md-nav__link">
+    <span class="md-ellipsis">
+      UsbDk installation failing for ObjectDetection(Coral)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-10-update-for-net-framework-kb5034275-kb5033918-kb5034466-kb5034582-affecting-powershell-cudnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows 10 Update for .NET Framework (KB5034275) (KB5033918) (KB5034466) (KB5034582) affecting PowerShell, cuDNN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-detection-fails-unable-to-create-yolo-detector-for-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Detection fails: Unable to create YOLO detector for model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errors-regarding-a-module-not-starting-a-package-not-found-something-failing-or-shutting-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Errors regarding a module not starting, a package not found, something failing or shutting down
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulenotfounderror-no-module-named-pil" class="md-nav__link">
+    <span class="md-ellipsis">
+      ModuleNotFoundError: No module named 'PIL'
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paddlepaddle-install-issues-blocking-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      PaddlePaddle Install Issues / Blocking Domains
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mesh-faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mesh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="virtual-machine.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virtual Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gpu.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPUs, TPUs, NPUs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="coral.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coral USB Accelerator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="raspberry-pi.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Raspberry Pi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="jetson.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jetson Nano Dev Kit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="home-assistant.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home Assistant Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="blue-iris.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blue Iris Webcam Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dev-environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build and Debug the Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ubuntu-installer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu / WSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/about.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About CodeProject.AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/license.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/release-notes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.codeproject.com/Feature/CodeProjectAI-Discussions.aspx" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Discussions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cant-find-custom-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Can't find custom models
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#port-already-in-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port already in use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gpu-is-not-being-used" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPU is not being used
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codeprojectai-server-stops-randomly-often-at-the-same-time-of-the-day" class="md-nav__link">
+    <span class="md-ellipsis">
+      CodeProject.AI Server stops randomly (often at the same time of the day)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oserror-winerror-1455-the-paging-file-is-too-small-for-this-operation-to-complete" class="md-nav__link">
+    <span class="md-ellipsis">
+      OSError: [WinError 1455] The paging file is too small for this operation to complete
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-fails-to-start-with-systemmanagementmanagementexception-invalid-class-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server fails to start with 'System.Management.ManagementException: Invalid class' error
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Server fails to start with 'System.Management.ManagementException: Invalid class' error">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#see" class="md-nav__link">
+    <span class="md-ellipsis">
+      See
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-fails-to-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module fails to start
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-of-faceprocessing-reports-a-urllib3-error-which-can-be-ignored" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation of FaceProcessing reports a urllib3 Error which can be ignored
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usbdk-installation-failing-for-objectdetectioncoral" class="md-nav__link">
+    <span class="md-ellipsis">
+      UsbDk installation failing for ObjectDetection(Coral)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows-10-update-for-net-framework-kb5034275-kb5033918-kb5034466-kb5034582-affecting-powershell-cudnn" class="md-nav__link">
+    <span class="md-ellipsis">
+      Windows 10 Update for .NET Framework (KB5034275) (KB5033918) (KB5034466) (KB5034582) affecting PowerShell, cuDNN
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-detection-fails-unable-to-create-yolo-detector-for-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object Detection fails: Unable to create YOLO detector for model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errors-regarding-a-module-not-starting-a-package-not-found-something-failing-or-shutting-down" class="md-nav__link">
+    <span class="md-ellipsis">
+      Errors regarding a module not starting, a package not found, something failing or shutting down
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulenotfounderror-no-module-named-pil" class="md-nav__link">
+    <span class="md-ellipsis">
+      ModuleNotFoundError: No module named 'PIL'
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paddlepaddle-install-issues-blocking-domains" class="md-nav__link">
+    <span class="md-ellipsis">
+      PaddlePaddle Install Issues / Blocking Domains
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Windows Installer</h1>
+
+<h2 id="cant-find-custom-models">Can't find custom models</h2>
+<p>When CodeProject.AI Server is installed it will comes with two different object detection modules. Both modules work the same, with the difference that one is a Python implementation that supports CUDA GPUs, and the other is a .NET implementation that supports embedded Intel GPUs. Each come with the same set of custom models that can be used. For custom object detection you need to:</p>
+<ol>
+<li>Ensure Object Object detection is enabled (it is by default)</li>
+<li>Use the provided custom models, or a. add your own models to the standard custom model folder (<em>C:\Program Files\CodeProject\AI\modules\ObjectDetectionYolo\custom-models</em> or <em>C:\Program Files\CodeProject\AI\modules\ObjectDetectionNet\custom-models</em>) if using a Windows install, or b. specify a directory that will contain the models (handy for Docker)</li>
+</ol>
+<p>To specify a different folder to use for custom models, you can</p>
+<ol>
+<li>Set the <code>--Modules:ObjectDetectionYolo:EnvironmentVariables:CUSTOM_MODELS_DIR</code> parameter when launching, <strong>or</strong></li>
+<li>Set the <code>Modules:ObjectDetectionYolo:EnvironmentVariables:CUSTOM_MODELS_DIR</code> environment variable, <strong>or</strong></li>
+<li>Set the <code>CUSTOM_MODELS_DIR</code> value in the modulesettings.json file in the ObjectDetectionYolo folder, <strong>or</strong></li>
+<li>Set the global override (to be deprecated!) variable <code>MODELSTORE-DETECTION</code> to point to your custom object folder, <strong>or</strong></li>
+<li>(For Docker) Map the folder containing your custom models (eg. <em>C:\MyCustomModels</em>) to the Object Detection's custom assets folder (<em>/app/modules/ObjectDetectionYolo/custom-models</em>). An example would be:</li>
+</ol>
+<div class="highlight"><span class="filename">Terminal</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker run -p 32168:32168 --name CodeProject.AI-Server -d <span class="se">^</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="se"> </span> --mount type=bind,source=C:\ProgramData\CodeProject\AI\docker\data,target=/etc/codeproject/ai <span class="se">^</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="se"> </span> --mount type=bind,source=C:\MyCustomModels,target=/app/modules/ObjectDetectionYolo/custom-models,readonly 
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    codeproject/ai-server
+</code></pre></div>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code>This mounts the *C:\MyCustomModels* directory on my local system and maps it to the */app/modules/ObjectDetectionYolo/custom-models* folder in the Docker container. Now, when CodeProject.AI Server is looking for the list of custom models, it will look in *C:\MyCustomModels* rather than */app/modules/ObjectDetectionYolo/custom-models*
+
+See the [API Reference - CodeProject.AI Server](https://www.codeproject.com/AI/docs/api/api_reference.html#custom-object-detector)
+</code></pre></div>
+<h2 id="port-already-in-use">Port already in use</h2>
+<p>If you see:</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Unable to start Kestrel.
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>System.IO.IOException: Failed to bind to address http://127.0.0.1:5000: address 
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>   already in use.
+</code></pre></div>
+<p>Either you have CodeProject.AI already running, or another application is using port 5000.</p>
+<p>Our first suggestion is to no longer use port 5000. It's a reserved port, though not all operating systems are actively using it. We prefer port 32168 since it's easy to remember and well out of harm's way of other used ports.</p>
+<p>You can change the external port that CodeProject.AI uses by editing the <em>appsettings.json</em> file and changing the value of the <code>CPAI_PORT</code> variable. In the demo app there is a Port setting you will need to edit to match the new port.</p>
+<p>Failing that, shut down any application using port 5000 (including any installed version of CodeProject.AI Server if you're trying to run in Development mode in Visual Studio).</p>
+<h2 id="gpu-is-not-being-used">GPU is not being used</h2>
+<p>Please ensure you have the NVidia CUDA drivers installed:</p>
+<ol>
+<li>Install the <a href="https://www.nvidia.com/Download/index.aspx">CUDA 11.7 Drivers</a></li>
+<li>Install the <a href="https://developer.nvidia.com/cuda-downloads">CUDA Toolkit 11.7</a>.</li>
+<li>Download and run our <a href="/KB/Articles/5322557/install_CUDnn.zip">cuDNN install script</a>.</li>
+</ol>
+<h2 id="codeprojectai-server-stops-randomly-often-at-the-same-time-of-the-day">CodeProject.AI Server stops randomly (often at the same time of the day)</h2>
+<p>If you're finding CodeProject.AI Server is randomly going offline once (or sometimes twice) a day, or if you find certain modules like the License Plate Reader are shutting down once a day, there may be conflict with backup software. In order to determine if this is the case, manually run your backup and see if CodeProject.AI Server goes offline. Interestingly, the service is still running, but shows as "Offline." It may be related to specific backup software, like Acronis.</p>
+<p>For the Licence Plate Reader shutting down, and you're using the GPU for CodeProject.AI Server and running an AMD GPU, try enabling Object Detection (YOLOv5.NET) and disable the Object Detection (YOLOv5.6.2). The latter only supports newer NVidia GPUs, while the former uses DirectX on Windows or WSL to access the GPU so it will support your AMD GPU if you have the DirectX driver installed.</p>
+<h2 id="oserror-winerror-1455-the-paging-file-is-too-small-for-this-operation-to-complete">OSError: [WinError 1455] The paging file is too small for this operation to complete</h2>
+<p>In a nutshell, your paging file is too small. If you've changed (reduced) your paging file settings to save disk space you may want to increase the size to provide more headroom for the system. Failing that it could simply be the case you have too little RAM installed. We'd recommend at least 8Gb for the current versions.</p>
+<h2 id="server-fails-to-start-with-systemmanagementmanagementexception-invalid-class-error">Server fails to start with 'System.Management.ManagementException: Invalid class' error</h2>
+<p>The error you will see is</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>Description: The process was terminated due to an unhandled exception.
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Exception Info: System.TypeInitializationException: The type initializer for
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>&#39;CodeProject.AI.SDK.Common.SystemInfo&#39; threw an exception.
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>---&gt; System.Management.ManagementException: Invalid class
+</code></pre></div>
+<p>This is due to the WMI repository being corrupt. To repair the corrupted WMI do the following:</p>
+<ul>
+<li>Open an Administrator Command or PowerShell window</li>
+<li>run <code>winmgmt /verifyrepository</code>. If the repository has an issue, it will respond "repository is not consistent".</li>
+<li>if the respository is inconsistent it needs to be repaired. run <code>winmmgmt /salvagerepository</code></li>
+<li>run <code>winmgmt /verifyrepository</code> again.</li>
+<li>if it still reports the "respository in not consistent" then you might have to take drastic action and reset the repository. See the links below for details on how to do this, and the risks involved.</li>
+</ul>
+<h3 id="see">See</h3>
+<ul>
+<li><a href="https://techcommunity.microsoft.com/t5/ask-the-performance-team/wmi-repository-corruption-or-not/ba-p/375484">WMI: Repository Corruption, or Not?</a>.</li>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/wmisdk/winmgmt">Winmgmt</a></li>
+</ul>
+<h2 id="module-fails-to-start">Module fails to start</h2>
+<p>If you have a modest hardware setup then each module may require a little more time to start up before being able to proceed to loading the next module.</p>
+<p>In the modulesettings.json file in each module's older is the setting <code>PostStartPauseSecs</code>. This specifies a pause between loading the given module and loading the next. Set it to 3 to 5 seconds if you modules are failing to load properly.</p>
+<h2 id="installation-of-faceprocessing-reports-a-urllib3-error-which-can-be-ignored">Installation of FaceProcessing reports a urllib3 Error which can be ignored</h2>
+<p>While installing FaceProcessing, an error related to urllib3 is reported. This can be safetly ignored. It's something we're pondering how to address, but FaceProcessing should work just fine without it.</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>22:58:56:ObjectDetectionYolo: ERROR: pip&#39;s dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>22:58:56:ObjectDetectionYolo: botocore 1.29.142 requires urllib3&lt;1.27,&gt;=1.25.4, but you have urllib3 2.0.3 which is incompatible.
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>22:58:56:ObjectDetectionYolo: google-auth 2.19.0 requires urllib3&lt;2.0, but you have urllib3 2.0.3 which is incompatible.
+</code></pre></div>
+<h2 id="usbdk-installation-failing-for-objectdetectioncoral">UsbDk installation failing for ObjectDetection(Coral)</h2>
+<p>If you're installing the UsbDk that's required for Coral USB, there is a known issue on Windows. The error will look something like: There is a problem with this Windows Installer package. A program run as part of the setup did not finish as expected. Contact your support personnel or package vendor.</p>
+<p>To solve this, unpack the MSI to some subdirectory, like this:</p>
+<div class="highlight"><span class="filename">Terminal</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>cd c:\users\user\downloads
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>mkdir 122
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>msiexec /a UsbDk_1.0.22_x64.msi /qb TARGETDIR=%cd%\122
+</code></pre></div>
+<p>Open administrator command line. Go to the directory where the <em>usbdkcontroller.exe</em> is placed:</p>
+<div class="highlight"><span class="filename">Terminal</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>cd c:\users\user\downloads\122\USB Runtime Library etc
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>usbdkcontroller.exe -u
+</code></pre></div>
+<p>Reboot</p>
+<div class="highlight"><span class="filename">Terminal</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>usbdkcontroller.exe -i
+</code></pre></div>
+<h2 id="windows-10-update-for-net-framework-kb5034275-kb5033918-kb5034466-kb5034582-affecting-powershell-cudnn">Windows 10 Update for .NET Framework (KB5034275) (KB5033918) (KB5034466) (KB5034582) affecting PowerShell, cuDNN</h2>
+<p>If you recently made a Windows 10 update and are finding that any external program that needs to call anything PowerShell is not working, and the script for cuDNN is not running, it could be a recent Windows 10 update issue. Particularly these updates:</p>
+<p>January 9, 2024-KB5034275 Cumulative Update for .NET Framework 3.5, 4.8 and 4.8.1 for Windows 10 Version 22H2, (KB5033918) or (KB5034466), and January 23, 2024-KB5034582 Cumulative Update Preview for .NET Framework 3.5, 4.8 and 4.8.1 for Windows 10 Version 22H2.</p>
+<p>Upgrading beyond these, or possibly uninstalling the update should resolve the issue.</p>
+<h2 id="object-detection-fails-unable-to-create-yolo-detector-for-model">Object Detection fails: Unable to create YOLO detector for model</h2>
+<p>If you are attempting to use an Object Detection module and get</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>Object Detection (YOLO): Unable to create YOLO detector for model
+</code></pre></div>
+<p>Please go to <em>C:\Program Files\CodeProject\AI\modules\ObjectDetectionYolo\assets</em>. You should see a set of .pt files. If you do not, this means your installer failed.</p>
+<p>To fix this, you need to re-install the module. Go to the <strong>Install Modules</strong> tab on your CodeProject.AI Server dashboard. Find the Object Detection module you are using, then click <strong>Uninstall</strong>. Then, once availabile, click <strong>Install</strong>.</p>
+<h2 id="errors-regarding-a-module-not-starting-a-package-not-found-something-failing-or-shutting-down">Errors regarding a module not starting, a package not found, something failing or shutting down</h2>
+<p>If you get any of the following errors while using a particular module:</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>Unable to load the model
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Error trying to start
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>An error occurred trying to start process
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>ModuleNotFoundError: No module named
+</code></pre></div>
+<p>Please go to <em>C:\Program Files\CodeProject\AI\modules[Module in question]</em> and look at <em>install.log</em>. This may point to the installation failing or something failing to be downloaded. If this is the case, you need to re-install the module. Go to the <strong>Install Modules</strong> tab on your CodeProject.AI Server dashboard. Find the module, then click <strong>Uninstall</strong>. Then, once availabile, click <strong>Install</strong>.</p>
+<h2 id="modulenotfounderror-no-module-named-pil">ModuleNotFoundError: No module named 'PIL'</h2>
+<p>If you see this error:</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>ModuleNotFoundError: No module named &#39;PIL&#39;
+</code></pre></div>
+<p>This means the module that threw the error wasn’t installed fully, most likely due to a timeout.</p>
+<p>If this is the case, you need to re-install the module. Go to the <strong>Install Modules</strong> tab on your CodeProject.AI Server dashboard. Find the module, then click <strong>Uninstall</strong>. Then, once availabile, click <strong>Install</strong>.</p>
+<h2 id="paddlepaddle-install-issues-blocking-domains">PaddlePaddle Install Issues / Blocking Domains</h2>
+<p>If you see this error:</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>ModuleNotFoundError: No module named &#39;paddle&#39;
+</code></pre></div>
+<p>While not exclusive to PaddlePaddle, or the Optical Character Recognition module, and License Plate Reader module, an error like this could be indicative of domain blocking. PaddlePaddle, for instance, may come from Chinese domains and if you have Chinese IPs blocked, these modules won't be able to install.</p>
+<p>To resolve this, temporarily allow the IPs you're restricting, and re-install the module.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CodeProject Solutions Inc
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.top"], "search": "../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>

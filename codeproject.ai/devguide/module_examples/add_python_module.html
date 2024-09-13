@@ -1,0 +1,2417 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A Guide to using and developing with CodeProject.AI Server">
+      
+      
+      
+      
+        <link rel="prev" href="adding_new_modules.html">
+      
+      
+        <link rel="next" href="add_net_module-sentiment.html">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>Adding your own Python module to CodeProject.AI - CodeProject.AI Server v2.8.1</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.35f28582.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/site.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-YZNPNQ0F2S"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-YZNPNQ0F2S",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-YZNPNQ0F2S",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#adding-your-own-python-module-to-codeprojectai" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://www.codeproject.com/" title="CodeProject.AI Server v2.8.1" class="md-header__button md-logo" aria-label="CodeProject.AI Server v2.8.1" data-md-component="logo">
+      
+  <img src="../../img/FavIcon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CodeProject.AI Server v2.8.1
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Adding your own Python module to CodeProject.AI
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://www.codeproject.com/" title="CodeProject.AI Server v2.8.1" class="md-nav__button md-logo" aria-label="CodeProject.AI Server v2.8.1" data-md-component="logo">
+      
+  <img src="../../img/FavIcon.png" alt="logo">
+
+    </a>
+    CodeProject.AI Server v2.8.1
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CodeProject.AI: Start here
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            CodeProject.AI: Start here
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/install_on_windows.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI on Windows
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/running_in_docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI in Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/install_on_linux.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI on Linux
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/install_on_macos.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI on macOS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../install/install_on_jetson.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI on a Jetson
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/mesh.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CodeProject.AI Server Mesh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Development Guide
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Development Guide
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_dev.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Setting up the Dev Environment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../modulesettings_json.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    The modulesettings files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install_scripts.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Install scripts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../python_req_text.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Python requirements files
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../triggers.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Triggers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Adding New Modules
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            Adding New Modules
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="adding_new_modules.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    So you want to add new module to CodeProject.AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Adding your own Python module
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="add_python_module.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Adding your own Python module
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-your-own-python-module-to-codeprojectai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding your own Python module to CodeProject.AI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding your own Python module to CodeProject.AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-does-a-client-of-codeprojectai-server-know-how-to-call-a-given-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does a client of CodeProject.AI Server know how to call a given module?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-the-client-know-what-inputoutput-to-provide-and-hows-does-that-get-to-and-from-the-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does the client know what input/output to provide, and hows does that get to and from the module?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-the-code-you-will-add-as-a-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choosing the code you will add as a module
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-the-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the Module
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing the Module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-about-python-packages-and-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      What about Python packages and a Virtual Environment?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-modulesettingsjson-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      The modulesettings.json file
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The modulesettings.json file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#routemaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routemaps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-installer-script-or-two" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating an installer script. Or two.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating an installer script. Or two.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-windows-installbat" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Windows (install.bat)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables available:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-available-call-by-call-sdkscriptspathutilsbat-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods available (call by call %sdkScriptsPath%\utils.bat &lt;method&gt;)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-linux-and-macos-installsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Linux and macOS (install.sh)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-simple-explorehtml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a simple explore.html file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-packager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a packager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-and-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install and test
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What next?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="add_net_module-sentiment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding your own .NET module: Sentiment Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="add_net_module-portrait.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Adding your own .NET module: Portrait Filter
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../why/how_to_add_AI_to_an_app.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    How to add AI to an Application
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../why/integrations.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Who is using CodeProject.AI?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    API & Settings
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            API & Settings
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/api_reference.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    API Reference
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/module_settings.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Module Settings
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            FAQ
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/windows-installer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Windows Installer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/docker.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Using Docker
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/mesh-faq.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mesh
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/virtual-machine.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Virtual Machines
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/gpu.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPUs, TPUs, NPUs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/coral.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Coral USB Accelerator
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/raspberry-pi.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Raspberry Pi
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/jetson.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Jetson Nano Dev Kit
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/home-assistant.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home Assistant Integration
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/blue-iris.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Blue Iris Webcam Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/dev-environment.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Build and Debug the Code
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/ubuntu-installer.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu / WSL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            About
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/about.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About CodeProject.AI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/license.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    License
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/release-notes.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Release Notes
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Project Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://www.codeproject.com/Feature/CodeProjectAI-Discussions.aspx" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Discussions
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#adding-your-own-python-module-to-codeprojectai" class="md-nav__link">
+    <span class="md-ellipsis">
+      Adding your own Python module to CodeProject.AI
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding your own Python module to CodeProject.AI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#how-does-a-client-of-codeprojectai-server-know-how-to-call-a-given-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does a client of CodeProject.AI Server know how to call a given module?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-does-the-client-know-what-inputoutput-to-provide-and-hows-does-that-get-to-and-from-the-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      How does the client know what input/output to provide, and hows does that get to and from the module?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#choosing-the-code-you-will-add-as-a-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Choosing the code you will add as a module
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-the-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      Writing the Module
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Writing the Module">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-about-python-packages-and-a-virtual-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      What about Python packages and a Virtual Environment?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logging
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-modulesettingsjson-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      The modulesettings.json file
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The modulesettings.json file">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#routemaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routemaps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-installer-script-or-two" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating an installer script. Or two.
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating an installer script. Or two.">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-windows-installbat" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Windows (install.bat)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variables-available" class="md-nav__link">
+    <span class="md-ellipsis">
+      Variables available:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methods-available-call-by-call-sdkscriptspathutilsbat-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods available (call by call %sdkScriptsPath%\utils.bat &lt;method&gt;)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-linux-and-macos-installsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      For Linux and macOS (install.sh)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-simple-explorehtml-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a simple explore.html file
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-packager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a packager
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-and-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install and test
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-next" class="md-nav__link">
+    <span class="md-ellipsis">
+      What next?
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Adding your own Python module</h1>
+
+<h2 id="adding-your-own-python-module-to-codeprojectai">Adding your own Python module to CodeProject.AI</h2>
+<p>Recall from <a href="adding_new_modules.html">Adding new modules to CodeProject.AI</a> that there are 6 main 
+tasks for adding a module (in development mode) to CodeProject.AI server</p>
+<ol>
+<li><strong>Find or write the code you want to include</strong>. This could be a project you find online,
+a project you've written yourself you wish to include, or you might just start from scratch
+on a new project.</li>
+<li><strong>Write an adapter</strong> that handles communication between the AI code you've written or are
+including in the module, and the CodeProject.AI server itself.</li>
+<li><strong>Provide a <code>modulesettings.json</code> file</strong> that describes the module and provides instruction
+   to CodeProject.AI on how to launch the module.</li>
+<li><strong>Create an install script</strong> (usually short) to setup the pre-requisites (download models, install necessary runtimes)</li>
+<li>(Optional but recommended) <strong>Create a simple <code>explore.html</code> file</strong> for testing your module, and to provide integration with the CodeProject.AI Explorer</li>
+<li>(Optional but recommended) <strong>Create a packager</strong> so your module can be packaged up and included in the main CodeProject.AI registry.</li>
+</ol>
+<p>We'll walk through each of these steps below, but first let's cover how a module communicates with
+the rest of the world. </p>
+<h3 id="how-does-a-client-of-codeprojectai-server-know-how-to-call-a-given-module">How does a client of CodeProject.AI Server know how to call a given module?</h3>
+<p>Each module defines a route in the form of <code>category/operation/command</code>. For instance, a computer
+vision module that offers object detection using a model called "animals" might define a route
+<code>vision/detect/animals</code>. This route is specified in the module's <code>modulesettings.json</code> file. The
+server takes care of the routing. A module can have as many routes as it wishes.</p>
+<h3 id="how-does-the-client-know-what-inputoutput-to-provide-and-hows-does-that-get-to-and-from-the-module">How does the client know what input/output to provide, and hows does that get to and from the module?</h3>
+<p>Again, the <code>modulesettings.json</code> defines the input/output for each route for each module. It is up
+to the client to make a HTTP POST call to CodeProject.AI Server using the module's route (explained
+above) and a request body that has the name/value pairs the module is expecting. This HTTP call is
+then converted to a <code>RequestData</code> object and passed to the module, and the module, in turn, uses 
+<code>RequestData</code> methods to get values and files from this object. </p>
+<p>Once the module has the input data, it processes that data using its <code>process</code> method and then passes
+the results back to the server as a JSON package. The return data is documented in the <code>modulesettings.json</code> file, but there
+are no hard and fast rules on what should be returned, apart from a requirement that the response must include a <code>success</code> flag
+to indicate whether the inference operation succeeded. </p>
+<p>The server itself will also add data to this
+return package such as timing data and meta data such as the name of the module that processed the request.</p>
+<p>What this boils down to is the <code>process</code> method should accept a <code>RequestData</code> object and return a 
+<code>JSON</code> object.</p>
+<p>For long running processes, a module may simply return a 'succeeded' message as the return response,
+and the server can then provide further updates on the progress of the request via a <code>status</code> method.
+This is a subject for another article.</p>
+<h2 id="choosing-the-code-you-will-add-as-a-module">Choosing the code you will add as a module</h2>
+<p>We want a module that will drop in easily, be self contained, and which will work within the current
+ecosystem of Python and / or .NET on Windows, macOS and Ubuntu.</p>
+<p>For this demonstration we'll use the <a href="https://github.com/danielgatis/rembg">rembg</a> module. <code>rembg</code> is
+a simple but fun AI module that takes any photo containing a subject and removes the background from
+the image. It runs under Python 3.9 or above. It exposes a simple API, works offline, and is fully 
+self-contained.</p>
+<h2 id="writing-the-module">Writing the Module</h2>
+<!--
+To create an adapter we need to ensure there is a well-defined package of data we can send to the module (eg an image, or some text), and a well-defined response from the server (again, maybe some text or an image). We want our module to be self contained and not require any user intervention. 
+
+For this example our payload will be an image and a boolean value that determines whether alpha matting will be used. Alpha matting is useful when dealing with images with softer edges. 
+
+The return package will be the modified image. We're passing information back via JSON, so we'll be base64 encoding the image.
+
+### The CodeProject.AI Server SDK
+-->
+
+<p>To make writing a module simpler and faster we'll use the CodeProject.AI Server's Python SDK and create
+a child class of the <code>ModuleRunner</code> class. This class provides 5 methods for overriding (though only 1
+is mandatory) and takes care of all the plumbing to handle the communication with the server. </p>
+<p>These methods are:</p>
+<ul>
+<li><code>initialise</code> (optional) - This provides module initialisation (if any is needed)</li>
+<li><code>process</code> (<strong>required</strong>) - The does the actual processing of an AI request. </li>
+<li><code>status</code> (optional) - Override this if you wish to provide status updates back to the server</li>
+<li><code>selftest</code> (optional) - This method is called at install time and provides a chance to test the system</li>
+<li><code>cleanup</code> (optional) - Provides a chance to clean up any resources in use while the module was running</li>
+</ul>
+<p>For our example we'll add a <code>rembg_adapter.py</code> file to our project in order to create our
+<code>ModuleRunner</code> class. This class will override the <code>process</code> and <code>selftest</code> methods only.  We'll then
+drop in the code we grabbed from the original rembg project. To keep things neat we'll
+drop all the rembg code into a rembg subfolder, and have our adapter at the root.</p>
+<h3 id="what-about-python-packages-and-a-virtual-environment">What about Python packages and a Virtual Environment?</h3>
+<p>If we're working with Python then we should use a virtual environment and install all our Python
+packages within this virtual environment. Happily that's all automatically done as part of the module
+install process: All we need to do is specify that we're going to be using Python within the <code>modulesettings.json</code>
+file (discussed below), and include a `requirements.txt file (also discussed below). The setup system
+will ensure python is installed, create the virtual environment, and install all the Python packages 
+for us. It will even check they installed properly and let us know if there was a problem.</p>
+<p>When importing modules from your Virtual Environment you should ensure you include the CodeProject.AI
+server SDK files first. This ensure the path to your installed modules is set correctly.</p>
+<h3 id="logging">Logging</h3>
+<p>There are logging methods that can be access in a module, but all output to stdout (eg console output) 
+is captured by the server and displayed in the dashboard, so if your original code dumps stuff to console, 
+that's fine: it will all be visible to the end user.</p>
+<h3 id="the-code">The Code</h3>
+<p>The guts of the background remover are in the <code>rembg/bg.py</code> module so we'll need to import that into
+our adapter, as well as the CodeProject.AI Server SDK, along with any other modules we need. We will
+add the methods we'll be overriding, and fill in those methods as appropriate.</p>
+<p>In our case there's no initialisation, no cleanup, and we won't pass back any status info (not a lot
+to report, really), so that leaves us with <code>process</code> and <code>selftest</code>. </p>
+<p>The code for these is very simple. For <code>process</code> we will take the input data from the <code>RequestData</code>
+object passed to us and extract a file and a value (named <code>use_alphamatting</code>) from this object. 
+These two parameters will be listed in the modulesettings.json file, so we hope our client who made the call included these values.
+If they didn't, the call will fail. Assuming all is good, we call the <code>remove</code> method from the original
+rembg project, and send the result back to the server as a JSON object. Super simple.</p>
+<p>The <code>selftest</code> method is equally simple. We create a <code>RequestData</code> object, fill it with test data,
+call the <code>process</code> method, and report success or failure. Care must be take to
+ensure that if environment variables are required, these will need to be set before the call is made.</p>
+<p>Finally, we need to ensure our adapter starts up. This is done by via the <code>start_loop</code> method of the
+Module runner</p>
+<p>The final, complete code, is below.</p>
+<div class="highlight"><span class="filename">Python</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Import our general libraries</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span> <span class="nn">sys</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">import</span> <span class="nn">time</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Import the CodeProject.AI SDK. This will add to the PATH var for future imports</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../../SDK/Python&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="kn">from</span> <span class="nn">request_data</span> <span class="kn">import</span> <span class="n">RequestData</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="kn">from</span> <span class="nn">module_runner</span> <span class="kn">import</span> <span class="n">ModuleRunner</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="kn">from</span> <span class="nn">common</span> <span class="kn">import</span> <span class="n">JSON</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1"># Import modules we need from our virtual environment</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1"># Import the method of the module we&#39;re wrapping</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="kn">from</span> <span class="nn">rembg.bg</span> <span class="kn">import</span> <span class="n">remove</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">class</span> <span class="nc">rembg_adapter</span><span class="p">(</span><span class="n">ModuleRunner</span><span class="p">):</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">RequestData</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">JSON</span><span class="p">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="sd">&quot;&quot;&quot; Processes a request from the client and returns the results&quot;&quot;&quot;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>            <span class="c1"># Get the input data. In this case an image and a bool value for the</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>            <span class="c1"># &#39;use_alphamatting&#39; param  </span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>            <span class="n">img</span><span class="p">:</span> <span class="n">Image</span>             <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get_image</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>            <span class="n">use_alphamatting</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="s2">&quot;use_alphamatting&quot;</span><span class="p">,</span> <span class="s2">&quot;false&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;true&quot;</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>            <span class="c1"># Make the call to the AI code we&#39;re wrapping (and time it)</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>            <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>            <span class="p">(</span><span class="n">processed_img</span><span class="p">,</span> <span class="n">inferenceTime</span><span class="p">)</span> <span class="o">=</span> <span class="n">remove</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">use_alphamatting</span><span class="p">)</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>            <span class="n">processMs</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>            <span class="c1"># Return a JSON object</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>            <span class="k">return</span> <span class="p">{</span> 
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>                <span class="s2">&quot;success&quot;</span><span class="p">:</span>      <span class="kc">True</span><span class="p">,</span> 
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>                <span class="s2">&quot;imageBase64&quot;</span><span class="p">:</span>  <span class="n">RequestData</span><span class="o">.</span><span class="n">encode_image</span><span class="p">(</span><span class="n">processed_img</span><span class="p">),</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>                <span class="s2">&quot;processMs&quot;</span> <span class="p">:</span>   <span class="n">processMs</span><span class="p">,</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>                <span class="s2">&quot;inferenceMs&quot;</span> <span class="p">:</span> <span class="n">inferenceTime</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>            <span class="p">}</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">report_error</span><span class="p">(</span><span class="n">ex</span><span class="p">,</span> <span class="vm">__file__</span><span class="p">)</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>            <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;error&quot;</span><span class="p">:</span> <span class="s2">&quot;unable to process the image&quot;</span><span class="p">}</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>    <span class="k">def</span> <span class="nf">selftest</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">JSON</span><span class="p">:</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45" href="#__codelineno-0-45"></a>
+<a id="__codelineno-0-46" name="__codelineno-0-46" href="#__codelineno-0-46"></a>        <span class="kn">import</span> <span class="nn">os</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47" href="#__codelineno-0-47"></a>        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;U2NET_HOME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">module_path</span><span class="p">,</span> <span class="s2">&quot;models&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48" href="#__codelineno-0-48"></a>        <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="s2">&quot;chris-hemsworth-2.jpg&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49" href="#__codelineno-0-49"></a>
+<a id="__codelineno-0-50" name="__codelineno-0-50" href="#__codelineno-0-50"></a>        <span class="n">request_data</span> <span class="o">=</span> <span class="n">RequestData</span><span class="p">()</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51" href="#__codelineno-0-51"></a>        <span class="n">request_data</span><span class="o">.</span><span class="n">add_file</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52" href="#__codelineno-0-52"></a>        <span class="n">request_data</span><span class="o">.</span><span class="n">add_value</span><span class="p">(</span><span class="s2">&quot;use_alphamatting&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53" href="#__codelineno-0-53"></a>
+<a id="__codelineno-0-54" name="__codelineno-0-54" href="#__codelineno-0-54"></a>        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">request_data</span><span class="p">)</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55" href="#__codelineno-0-55"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Info: Self-test for </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">module_id</span><span class="si">}</span><span class="s2">. Success: </span><span class="si">{</span><span class="n">result</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56" href="#__codelineno-0-56"></a>        <span class="c1"># print(f&quot;Info: Self-test output for {self.module_id}: {result}&quot;)</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57" href="#__codelineno-0-57"></a>
+<a id="__codelineno-0-58" name="__codelineno-0-58" href="#__codelineno-0-58"></a>        <span class="k">return</span> <span class="p">{</span> <span class="s2">&quot;success&quot;</span><span class="p">:</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">],</span> <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Remove background test successful&quot;</span> <span class="p">}</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59" href="#__codelineno-0-59"></a>
+<a id="__codelineno-0-60" name="__codelineno-0-60" href="#__codelineno-0-60"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61" href="#__codelineno-0-61"></a>    <span class="n">rembg_adapter</span><span class="p">()</span><span class="o">.</span><span class="n">start_loop</span><span class="p">()</span>
+</code></pre></div>
+<p>A couple of notes on this code:</p>
+<ol>
+<li>We've used the ModuleRunner <code>report_error</code> method for reporting exceptions. This method takes the
+   exception and the name of the current file and reports the error to the server. It handles all
+   the formatting and stack tracing needed to provide a sensible error report.</li>
+<li>
+<p>We made one small (optional) change to the <code>remove</code> method in the rembg project to allows us
+    to report on inference time. This isn't needed: it just is a nice touch</p>
+<p>In <code>/rembg/bg.py</code> we wrap the <code>masks = session.predict</code> line with some timing:
+<div class="highlight"><span class="filename">Python</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">masks</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">inference_time</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+</code></pre></div>
+and we return a tuple containing the modified image and the inference time
+<code>python
+return (bio.read(), inference_time)</code>
+ This is the only code we've added. The rembg module has been copied and pasted as-is, and we're creating a child class of the ModuleRunner class in the CodeProject.AI SDK module module_runner.py. Nothing else (code-wise) needs to be added.</p>
+</li>
+</ol>
+<h3 id="the-modulesettingsjson-file">The modulesettings.json file</h3>
+<p>We need to tell client applications how they will call our module, and the CodeProject.AI server what
+route it needs to watch. This route can be whatever we like, so let's choose the route 
+<code>/v1/image/removebackground</code>. </p>
+<p>Our module settings file (<code>modulesettings.json</code>) also allows us to define environment variables that 
+are local to the process. Here, we'll let rembg know where the model file that we downloaded in the 
+setup script is stored.</p>
+<p>The module settings provides the server with publishing information that is used to create packages
+and package listings, which in turn allows the dashboard to display human readable information such
+as a description, version, author, the project that it's based on and licensing information.</p>
+<p>Any custom menu that should be added to the module's listing's dropdown menu on the dashboard is
+defined in the module settings file under the <code>Menus</code> object.</p>
+<p>Finally, as the module evolves, and as the server itself evolves, version compatibility between
+module and server is important. The <code>ModuleReleases</code> object defines what version of the module is
+compatible with which server version.</p>
+<p>Since this is a Python module we'll also set the runtime as Python3.9, and ask it to call our
+adapter file to start the process.</p>
+<div class="highlight"><span class="filename">JSON</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">&quot;Modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">&quot;BackgroundRemover&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">      </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Background Remover&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">      </span><span class="nt">&quot;PublishingInfo&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Automatically removes the background from a picture&quot;</span><span class="p">,</span><span class="w"> </span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">        </span><span class="nt">&quot;IconURL&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">        </span><span class="nt">&quot;Category&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Image Processing&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">        </span><span class="nt">&quot;Stack&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python, ONNX&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">        </span><span class="nt">&quot;License&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SSPL&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="nt">&quot;LicenseUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://www.mongodb.com/licensing/server-side-public-license&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="nt">&quot;Author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Chris Maunder&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">        </span><span class="nt">&quot;Homepage&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://codeproject.com/ai&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="nt">&quot;BasedOn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rembg&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">        </span><span class="nt">&quot;BasedOnUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/danielgatis/rembg&quot;</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">      </span><span class="nt">&quot;LaunchSettings&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">        </span><span class="nt">&quot;AutoStart&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">        </span><span class="nt">&quot;FilePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;rembg_adapter.py&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">        </span><span class="nt">&quot;Runtime&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python3.9&quot;</span><span class="p">,</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="w">        </span><span class="nt">&quot;RuntimeLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Local&quot;</span><span class="p">,</span><span class="w">       </span><span class="c1">// Can be Local or Shared</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">        </span><span class="nt">&quot;PostStartPauseSecs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">           </span><span class="c1">// Generally 1 if using GPU, 0 for CPU</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
+<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="w">      </span><span class="nt">&quot;EnvironmentVariables&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="w">        </span><span class="nt">&quot;U2NET_HOME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;%CURRENT_MODULE_PATH%/models&quot;</span><span class="w"> </span><span class="c1">// where to store the models</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a>
+<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a><span class="w">      </span><span class="nt">&quot;GpuOptions&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="w">        </span><span class="nt">&quot;InstallGPU&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">              </span><span class="c1">// GPU support not provided</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="w">        </span><span class="nt">&quot;EnableGPU&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">                </span><span class="c1">// Will be coerced to false if InstallGPU = false</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">        </span><span class="nt">&quot;AcceleratorDeviceName&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">    </span><span class="c1">// = default</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="w">        </span><span class="nt">&quot;Parallelism&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">                 </span><span class="c1">// 0 = Default (number of CPUs - 1)</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a><span class="w">        </span><span class="nt">&quot;HalfPrecision&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;enable&quot;</span><span class="w">         </span><span class="c1">// &#39;Force&#39;, &#39;Enable&#39;, &#39;Disable&#39;: whether to force on, allow, or disable half-precision ops</span>
+<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a>
+<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">      </span><span class="nt">&quot;InstallOptions&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a><span class="w">        </span><span class="nt">&quot;Platforms&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!linux&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!raspberrypi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!orangepi&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;!jetson&quot;</span><span class="w"> </span><span class="p">],</span><span class="w"> </span><span class="c1">// issues with numpy on linux</span>
+<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">        </span><span class="nt">&quot;PreInstalled&quot;</span><span class="p">:</span><span class="w">   </span><span class="kc">false</span><span class="p">,</span><span class="w">          </span><span class="c1">// Is this module pre-installed with the server (eg Docker containers)</span>
+<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">        </span><span class="nt">&quot;ModuleReleases&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">               </span><span class="c1">// Which server version is compatible with each version of this module.</span>
+<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a><span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ModuleVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ServerVersionRange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span><span class="w">   </span><span class="s2">&quot;2.0.8&quot;</span><span class="w">  </span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;ReleaseDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2022-11-01&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ModuleVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0.1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ServerVersionRange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;2.0.9&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;2.4.0&quot;</span><span class="w">  </span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;ReleaseDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-12-06&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ReleaseNotes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Updated modulesettings schema&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;Importance&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Minor&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;ModuleVersion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.1.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ServerVersionRange&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&quot;2.4.0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w">       </span><span class="p">],</span><span class="w"> </span><span class="nt">&quot;ReleaseDate&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2023-12-09&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;ReleaseNotes&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Installer updates&quot;</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">        </span><span class="p">]</span>
+<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a><span class="w">      </span><span class="p">},</span>
+<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a>
+<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="w">      </span><span class="nt">&quot;RouteMaps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-53" name="__codelineno-2-53" href="#__codelineno-2-53"></a><span class="w">           </span><span class="err">...</span>
+<a id="__codelineno-2-54" name="__codelineno-2-54" href="#__codelineno-2-54"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-55" name="__codelineno-2-55" href="#__codelineno-2-55"></a><span class="w">      </span><span class="p">]</span>
+<a id="__codelineno-2-56" name="__codelineno-2-56" href="#__codelineno-2-56"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-57" name="__codelineno-2-57" href="#__codelineno-2-57"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-58" name="__codelineno-2-58" href="#__codelineno-2-58"></a><span class="p">}</span>
+</code></pre></div>
+<p>The <strong>EnvironmentVariables</strong> section defines key/value pairs that will be used to set environment
+variables that may be required by the module. In this case, the path to the AI model files. This
+is a value specific to, and defined by, the rembg module.</p>
+<p><code>CURRENT_MODULE_PATH</code> is a macro that will expand to the location of the directory containing the current module.
+In this case /src/modules/BackgroundRemover.</p>
+<p>The settings under "Launch instructions" section should be self-explanatory. The FilePath is the path
+to the file to be executed, relative to the <code>MODULES_PATH</code> directory. AutoStart sets whether or not this module will
+be launched at startup.</p>
+<p>Runtime defines what runtime will launch the file. We currently support dotnet (.NET), python37
+(python 3.7) and python39 (Python 3.9). If omitted, the CodeProject.AI Server will attempt to
+guess based on the FilePath. RuntimeLocation refers to whether this module should have its runtime
+(in this case the Python3.9 environment) setup locally to the module, or in a shared location where
+libraries will be shared among multiple modules. Sharing saves space at the expense of compatibility
+issues.</p>
+<p>The Platforms array contains an entry for each platform on which the service can run.
+Currently Windows, Linux, Linux-Arm64, macOS, and macOS-Arm64 are supported.</p>
+<h4 id="routemaps">Routemaps</h4>
+<p>The file also defines the API routes for the module under the <strong>RouteMaps</strong> section</p>
+<div class="highlight"><span class="filename">JSON</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;Modules&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">&quot;ModulesConfig&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="nt">&quot;BackgroundRemoval&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">         </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Background Removal&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">         </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">         </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Removes backgrounds from images.&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">         </span><span class="err">...</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">      </span><span class="nt">&quot;RouteMaps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">          </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Background Remover&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">          </span><span class="nt">&quot;Route&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image/removebackground&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">          </span><span class="nt">&quot;Method&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">          </span><span class="nt">&quot;Command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;removebackground&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">          </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Removes the background from behind the main subjects in images.&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">          </span><span class="nt">&quot;Inputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">              </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;image&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">              </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;File&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">              </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The image to have its background removed.&quot;</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a><span class="w">              </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;use_alphamatting&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="w">              </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Boolean&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="w">              </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Whether or not to use alpha matting.&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="w">              </span><span class="nt">&quot;DefaultValue&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;false&quot;</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="w">          </span><span class="p">],</span>
+<a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="w">          </span><span class="nt">&quot;Outputs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="w">              </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;success&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="w">              </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Boolean&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="w">              </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;True if successful.&quot;</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a><span class="w">              </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;imageBase64&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a><span class="w">              </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Base64ImageData&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a><span class="w">              </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The base64 encoded image that has had its background removed.&quot;</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="w">              </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inferenceMs&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a><span class="w">              </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Integer&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a><span class="w">              </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The time (ms) to perform the AI inference.&quot;</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a><span class="w">            </span><span class="p">},</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a><span class="w">            </span><span class="p">{</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a><span class="w">              </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;processMs&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a><span class="w">              </span><span class="nt">&quot;Type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Integer&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="w">              </span><span class="nt">&quot;Description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;The time (ms) to process the image (includes inference and image manipulation operations).&quot;</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a><span class="w">          </span><span class="p">]</span>
+<a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a><span class="w">         </span><span class="p">]</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a><span class="w">       </span><span class="p">}</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a><span class="w">     </span><span class="p">}</span>
+<a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a><span class="w">   </span><span class="p">}</span>
+<a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="p">}</span>
+</code></pre></div>
+<p>Path is the API path, in this case <em>localhost:32168/v1/image/removebackground</em>. Remember that this
+was what we chose (arbitrarily) as our API. It can be anything as long as it isn't currently in use.</p>
+<p>Method is the HTTP method to use. In our case POST.</p>
+<p>Command is the method in the API controller that will be called, in this case 
+<code>removebackground</code>. Command is passed to the <code>process</code> method and is only needed if your
+process method will handle more than one command.</p>
+<p>Description, Inputs and Outputs are purely documentation at this stage.</p>
+<h2 id="creating-an-installer-script-or-two">Creating an installer script. Or two.</h2>
+<p>the <code>rembg</code> module comprises the following</p>
+<ol>
+<li>The python code</li>
+<li>The python 3.9 interpreter</li>
+<li>Some Python packages</li>
+<li>The AI models</li>
+</ol>
+<p>To ensure these are all in place within the development environment we need to create an <code>install.bat</code>
+install script in the folder containing our project. In our case we don't need to do anything other
+than download models. The python runtime is setup automatically, as are the packages. There are no
+libraries or drivers to install, so our install script is simple.</p>
+<h3 id="for-windows-installbat">For Windows (install.bat)</h3>
+<p>This script will be called automatically from the global <code>setup.bat</code> script</p>
+<div class="highlight"><span class="filename">Batchfile</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">:</span><span class="c1">: Download the models and store in /models</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="k">call</span> <span class="s2">&quot;</span><span class="nv">%sdkScriptsPath%</span><span class="s2">\utils.bat&quot;</span> GetFromServer <span class="s2">&quot;rembg-models.zip&quot;</span> <span class="s2">&quot;models&quot;</span> <span class="s2">&quot;Downloading Background Remover models...&quot;</span>
+</code></pre></div>
+<p>Obviously there's not a lot this script needs to do other than download the models
+for the module.</p>
+<p>When writing install scripts you have the following variables and methods at your disposal:</p>
+<h3 id="variables-available">Variables available:</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Variable</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">absoluteAppRootDir</td>
+<td style="text-align: left;">the root path of the app (default: C:\Program Files\CodeProject\AI)</td>
+</tr>
+<tr>
+<td style="text-align: left;">sdkScriptsPath</td>
+<td style="text-align: left;">the path to the installation utility scripts (%rootPath%\SDK\Scripts)</td>
+</tr>
+<tr>
+<td style="text-align: left;">runtimesPath</td>
+<td style="text-align: left;">the path to the installed runtimes (%rootPath%/src/runtimes)</td>
+</tr>
+<tr>
+<td style="text-align: left;">downloadPath</td>
+<td style="text-align: left;">the path to where downloads will be stored (%sdkScriptsPath%\downloads)</td>
+</tr>
+<tr>
+<td style="text-align: left;">modulesPath</td>
+<td style="text-align: left;">the path to all the AI modules (%rootPath%\src\modules)</td>
+</tr>
+<tr>
+<td style="text-align: left;">moduleDir</td>
+<td style="text-align: left;">the name of the directory containing this module (def: name of current dir)</td>
+</tr>
+<tr>
+<td style="text-align: left;">os</td>
+<td style="text-align: left;">"windows" for this script</td>
+</tr>
+<tr>
+<td style="text-align: left;">architecture</td>
+<td style="text-align: left;">"x86_64" or "arm64"</td>
+</tr>
+<tr>
+<td style="text-align: left;">platform</td>
+<td style="text-align: left;">"windows" for this script</td>
+</tr>
+<tr>
+<td style="text-align: left;">verbosity</td>
+<td style="text-align: left;">quiet, info or loud. Use this to determines the noise level of output.</td>
+</tr>
+<tr>
+<td style="text-align: left;">forceOverwrite</td>
+<td style="text-align: left;">if true then ensure you force a re-download and re-copy of downloads. GetFromServer will honour this value. Do it yourself for DownloadAndExtract</td>
+</tr>
+</tbody>
+</table>
+<h3 id="methods-available-call-by-call-sdkscriptspathutilsbat-method">Methods available (call by <code>call %sdkScriptsPath%\utils.bat &lt;method&gt;</code>)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Write     text [foreground [background]]</td>
+<td style="text-align: left;">Writes text without a linefeed using the given colors (eg call %sdkScriptsPath%\utils.bat WriteLine "Hi" "green")</td>
+</tr>
+<tr>
+<td style="text-align: left;">WriteLine text [foreground [background]]</td>
+<td style="text-align: left;">Writes text with a linefeed using the given colors</td>
+</tr>
+<tr>
+<td style="text-align: left;">GetFromServer filename moduleAssetDir message</td>
+<td style="text-align: left;">Downloads a file from the server and places it in the directory specified within the module's folder <br><ul><li>filename       - Name of the compressed archive to be downloaded<li>moduleAssetDir - Name of folder in module's directory where archive will be extracted<li>message        - Message to display during download  </ul></td>
+</tr>
+<tr>
+<td style="text-align: left;">DownloadAndExtract  storageUrl filename downloadPath dirNameToSave message</td>
+<td style="text-align: left;">Downloads a file from a remote server, unpacks it and stores it in the given folder <br><ul><li>storageUrl    - Url that holds the compressed archive to Download <li>filename      - Name of the compressed archive to be downloaded <li>downloadPath  - Path to where the downloaded compressed archive should be downloaded <li>dirNameToSave - name of directory, relative to downloadPath, where contents of archive will be extracted and saved <li>message       - Message to display during download</ul></td>
+</tr>
+</tbody>
+</table>
+<h3 id="for-linux-and-macos-installsh">For Linux and macOS (install.sh)</h3>
+<p>The script is essentially the same as the Windows version:</p>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>getFromServer<span class="w"> </span><span class="s2">&quot;rembg-models.zip&quot;</span><span class="w"> </span><span class="s2">&quot;models&quot;</span><span class="w"> </span><span class="s2">&quot;Downloading Background Remover models...&quot;</span>
+</code></pre></div>
+<p>The variables and methods available in Linux / macOS are the same as in Windows, with the exception
+that in Linux/macOS the methods are camelCased.</p>
+<h2 id="create-a-simple-explorehtml-file">Create a simple <code>explore.html</code> file</h2>
+<p>To test our module that's running under CodeProject.AI Server we'll write a simple webpage that will
+call the module via its API and display the results. We do this using a special file <code>explore.html</code>
+that will be written in a way that allows the CodeProject.AI Server's Explorer to extract the UI 
+from this explore.html file and incorporate it into the server's main explorer.html file</p>
+<p>The entire HTML file is shown below. Note the 3 sections marked by</p>
+<ol>
+<li>START/END EXPLORER STYLE</li>
+<li>START/END EXPLORER MARKUP</li>
+<li>START/END EXPLORER SCRIPT</li>
+</ol>
+<p>These three sections will be pulled out from this file and inserted into the main server's
+explorer.html file. For this to work seamlessly it's best if your explore.html test file for this
+module uses the same scripts and follows the same naming conventions as the explorer.html</p>
+<p>Specifically</p>
+<ol>
+<li>We include the explorer.js class to get access to the methods used to call the server API.</li>
+<li>We include <code>imgPreview</code> and <code>imgMask</code> elements for displaying image results</li>
+<li>We include a <code>results</code> element for displaying text results.</li>
+<li>We prefix any IDs that may have naming conflicts with the <code>_MID_</code> macro. This marker will be
+   replaced by the module's name in the main explorer.html file to avoid name collisions.</li>
+</ol>
+<div class="highlight"><span class="filename">HTML</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>    <span class="p">&lt;</span><span class="nt">meta</span> <span class="na">charset</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Background Remover Module Test<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bootstrapCss&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://localhost:32168/assets/bootstrap-dark.min.css&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/css&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://localhost:32168/assets/dashboard.css?v=2.5.0.0&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;http://localhost:32168/assets/explorer.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="c">/* START EXPLORER STYLE */</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="c">/* END EXPLORER STYLE */</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="p">&lt;</span><span class="nt">body</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;dark-mode&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mx-auto&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;max-width: 800px;&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a>    <span class="p">&lt;</span><span class="nt">h2</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;mb-3&quot;</span><span class="p">&gt;</span>Background Remover Module Test<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a>    <span class="p">&lt;</span><span class="nt">form</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">enctype</span><span class="o">=</span><span class="s">&quot;multipart/form-data&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;myform&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21" href="#__codelineno-6-21"></a>
+<a id="__codelineno-6-22" name="__codelineno-6-22" href="#__codelineno-6-22"></a><span class="cm">&lt;!-- START EXPLORER MARKUP --&gt;</span>
+<a id="__codelineno-6-23" name="__codelineno-6-23" href="#__codelineno-6-23"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group row&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24" href="#__codelineno-6-24"></a>            <span class="p">&lt;</span><span class="nt">label</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col-form-label col-2&quot;</span><span class="p">&gt;</span>Image<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25" href="#__codelineno-6-25"></a>            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;col form-control btn-light&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;_MID_removeBgInput&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;file&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:17rem&quot;</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26" href="#__codelineno-6-26"></a>                    <span class="na">onchange</span><span class="o">=</span><span class="s">&quot;return previewImage(this)&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-6-27" name="__codelineno-6-27" href="#__codelineno-6-27"></a>            <span class="p">&lt;</span><span class="nt">input</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-control btn-success&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Remove Background&quot;</span>
+<a id="__codelineno-6-28" name="__codelineno-6-28" href="#__codelineno-6-28"></a>                    <span class="na">style</span><span class="o">=</span><span class="s">&quot;width:11rem&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;_MID_removeBackground&quot;</span>
+<a id="__codelineno-6-29" name="__codelineno-6-29" href="#__codelineno-6-29"></a>                    <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;_MID_onRemoveBackground(_MID_removeBgInput, _MID_use_alphamatting.checked)&quot;</span> <span class="p">/&gt;</span>
+<a id="__codelineno-6-30" name="__codelineno-6-30" href="#__codelineno-6-30"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-6-31" name="__codelineno-6-31" href="#__codelineno-6-31"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;form-group row mt-1 justify-content-end&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-32" name="__codelineno-6-32" href="#__codelineno-6-32"></a>            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;checkbox checkbox-primary col-4&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-33" name="__codelineno-6-33" href="#__codelineno-6-33"></a>                <span class="p">&lt;</span><span class="nt">input</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;_MID_use_alphamatting&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;styled&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;checkbox&quot;</span> <span class="na">checked</span><span class="p">&gt;</span>
+<a id="__codelineno-6-34" name="__codelineno-6-34" href="#__codelineno-6-34"></a>                <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;_MID_use_alphamatting&quot;</span><span class="p">&gt;</span>Use Alpha matting<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+<a id="__codelineno-6-35" name="__codelineno-6-35" href="#__codelineno-6-35"></a>            <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-6-36" name="__codelineno-6-36" href="#__codelineno-6-36"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-6-37" name="__codelineno-6-37" href="#__codelineno-6-37"></a><span class="cm">&lt;!-- END EXPLORER MARKUP --&gt;</span>
+<a id="__codelineno-6-38" name="__codelineno-6-38" href="#__codelineno-6-38"></a>
+<a id="__codelineno-6-39" name="__codelineno-6-39" href="#__codelineno-6-39"></a>        <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w-100 position-relative form-control my-4 p-0&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-40" name="__codelineno-6-40" href="#__codelineno-6-40"></a>            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;imgMask&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;position-absolute&quot;</span>
+<a id="__codelineno-6-41" name="__codelineno-6-41" href="#__codelineno-6-41"></a>                    <span class="na">style</span><span class="o">=</span><span class="s">&quot;left:0;top:0;pointer-events:none;z-index:10&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-6-42" name="__codelineno-6-42" href="#__codelineno-6-42"></a>            <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;imgPreview&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;w-100&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;height:250px;visibility:hidden&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-43" name="__codelineno-6-43" href="#__codelineno-6-43"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-6-44" name="__codelineno-6-44" href="#__codelineno-6-44"></a>        <span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-6-45" name="__codelineno-6-45" href="#__codelineno-6-45"></a>            <span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Results<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<a id="__codelineno-6-46" name="__codelineno-6-46" href="#__codelineno-6-46"></a>            <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;results&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;results&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;bg-light p-3&quot;</span> <span class="na">style</span><span class="o">=</span><span class="s">&quot;min-height: 100px;&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-6-47" name="__codelineno-6-47" href="#__codelineno-6-47"></a>        <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-6-48" name="__codelineno-6-48" href="#__codelineno-6-48"></a>
+<a id="__codelineno-6-49" name="__codelineno-6-49" href="#__codelineno-6-49"></a>    <span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+<a id="__codelineno-6-50" name="__codelineno-6-50" href="#__codelineno-6-50"></a>
+<a id="__codelineno-6-51" name="__codelineno-6-51" href="#__codelineno-6-51"></a>    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+<a id="__codelineno-6-52" name="__codelineno-6-52" href="#__codelineno-6-52"></a><span class="c1">// START EXPLORER SCRIPT</span>
+<a id="__codelineno-6-53" name="__codelineno-6-53" href="#__codelineno-6-53"></a>
+<a id="__codelineno-6-54" name="__codelineno-6-54" href="#__codelineno-6-54"></a><span class="w">        </span><span class="kd">function</span><span class="w"> </span><span class="nx">_MID_onRemoveBackground</span><span class="p">(</span><span class="nx">fileChooser</span><span class="p">,</span><span class="w"> </span><span class="nx">use_alphamatting</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-55" name="__codelineno-6-55" href="#__codelineno-6-55"></a>
+<a id="__codelineno-6-56" name="__codelineno-6-56" href="#__codelineno-6-56"></a><span class="w">            </span><span class="nx">clearImagePreview</span><span class="p">();</span>
+<a id="__codelineno-6-57" name="__codelineno-6-57" href="#__codelineno-6-57"></a>
+<a id="__codelineno-6-58" name="__codelineno-6-58" href="#__codelineno-6-58"></a><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">fileChooser</span><span class="p">.</span><span class="nx">files</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-59" name="__codelineno-6-59" href="#__codelineno-6-59"></a><span class="w">                </span><span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;No file was selected for background removal&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-60" name="__codelineno-6-60" href="#__codelineno-6-60"></a><span class="w">                </span><span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-6-61" name="__codelineno-6-61" href="#__codelineno-6-61"></a><span class="w">            </span><span class="p">}</span>
+<a id="__codelineno-6-62" name="__codelineno-6-62" href="#__codelineno-6-62"></a>
+<a id="__codelineno-6-63" name="__codelineno-6-63" href="#__codelineno-6-63"></a><span class="w">            </span><span class="nx">previewImage</span><span class="p">(</span><span class="nx">fileChooser</span><span class="p">);</span>
+<a id="__codelineno-6-64" name="__codelineno-6-64" href="#__codelineno-6-64"></a><span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">images</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">fileChooser</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mf">0</span><span class="p">]];</span>
+<a id="__codelineno-6-65" name="__codelineno-6-65" href="#__codelineno-6-65"></a><span class="w">            </span><span class="kd">let</span><span class="w"> </span><span class="nx">params</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="s2">&quot;use_alphamatting&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">use_alphamatting</span><span class="p">]]</span>
+<a id="__codelineno-6-66" name="__codelineno-6-66" href="#__codelineno-6-66"></a>
+<a id="__codelineno-6-67" name="__codelineno-6-67" href="#__codelineno-6-67"></a><span class="w">            </span><span class="nx">setResultsHtml</span><span class="p">(</span><span class="s2">&quot;Removing background...&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-68" name="__codelineno-6-68" href="#__codelineno-6-68"></a><span class="w">            </span><span class="nx">submitRequest</span><span class="p">(</span><span class="s1">&#39;image&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;removebackground&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">images</span><span class="p">,</span><span class="w"> </span><span class="nx">params</span><span class="p">,</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-69" name="__codelineno-6-69" href="#__codelineno-6-69"></a><span class="w">                </span><span class="nx">setResultsHtml</span><span class="p">(</span><span class="s2">&quot;Background Removal complete&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">getProcessingMetadataHtml</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+<a id="__codelineno-6-70" name="__codelineno-6-70" href="#__codelineno-6-70"></a><span class="w">                </span><span class="nx">showResultsImageData</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+<a id="__codelineno-6-71" name="__codelineno-6-71" href="#__codelineno-6-71"></a><span class="w">            </span><span class="p">});</span>
+<a id="__codelineno-6-72" name="__codelineno-6-72" href="#__codelineno-6-72"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-6-73" name="__codelineno-6-73" href="#__codelineno-6-73"></a><span class="c1">// END EXPLORER SCRIPT</span>
+<a id="__codelineno-6-74" name="__codelineno-6-74" href="#__codelineno-6-74"></a><span class="w">    </span><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<a id="__codelineno-6-75" name="__codelineno-6-75" href="#__codelineno-6-75"></a><span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-6-76" name="__codelineno-6-76" href="#__codelineno-6-76"></a><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-6-77" name="__codelineno-6-77" href="#__codelineno-6-77"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Once the server is running, and this module is started, then launching this HTML page
+locally will allow you to test the module live.</p>
+<h2 id="create-a-packager">Create a packager</h2>
+<p>The final (optional) step is to create a packager. The package creates a zip file that the installer
+can install. In our case the installer simply unzips the module's package and runs a command to
+download models, so our package only needs to create the zip file to be unzipped.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Windows</label><label for="__tabbed_1_2">Linux / macOS</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Batchfile</span><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">@</span><span class="k">Echo</span> off
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="c1">REM Module Packaging script. To be called from create_packages.bat</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="k">set</span> <span class="nv">moduleId</span><span class="p">=</span><span class="nv">%~1</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">set</span> <span class="nv">version</span><span class="p">=</span><span class="nv">%~2</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>tar -caf <span class="nv">%moduleId%</span>-<span class="nv">%version%</span>.zip --exclude=__pycache__  --exclude=*.development.* --exclude=*.log <span class="se">^</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="se"> </span>   rembg\* *.py modulesettings.* requirements.* install.sh install.bat explore.html test\*
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="ch">#!/bin/bash</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="c1"># Module Packaging script. To be called from create_packages.sh</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nv">moduleId</span><span class="o">=</span><span class="nv">$1</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nv">version</span><span class="o">=</span><span class="nv">$2</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>tar<span class="w"> </span>-caf<span class="w"> </span><span class="si">${</span><span class="nv">moduleId</span><span class="si">}</span>-<span class="si">${</span><span class="nv">version</span><span class="si">}</span>.zip<span class="w"> </span>--exclude<span class="o">=</span>__pycache__<span class="w">  </span>--exclude<span class="o">=</span>*.development.*<span class="w"> </span>--exclude<span class="o">=</span>*.log<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">    </span>rembg/*<span class="w"> </span>*.py<span class="w"> </span>modulesettings.*<span class="w"> </span>requirements.*<span class="w"> </span>install.sh<span class="w"> </span>install.bat<span class="w"> </span>explore.html<span class="w"> </span>test/*
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="install-and-test">Install and test</h2>
+<p>At this point we have a module, an install script and a test client. Let's give
+ it a run</p>
+<ol>
+<li>
+<p>Ensure you have the latest <a href="https://github.com/codeproject/CodeProject.AI-Server">CodeProject.AI repo</a>
+ downloaded. That has all the code we've talked about above already in place</p>
+</li>
+<li>
+<p>Run the dev install script. This will see your new script and then run it to ensure Python 3.9 is installed and setup, and that the required Python modules are installed.</p>
+</li>
+<li>
+<p>Launch the server by starting a new debug session in Visual Studio or VS Code.</p>
+</li>
+<li>
+<p>In Debug, the CodeProject.AI Dashboard is automatically launched when run. After the server starts all
+ the backend Modules, including the Background Removal module, the Dashboard will display the
+ modules it knows about.<br />
+<img alt="Module Status Panel" src="../../img/ModuleStatus.png" /></p>
+</li>
+<li>
+<p>Launch the <code>explore.html</code> file in a browser, choose a file and click "Submit" button. The results
+ should be shown.  Also test in the server's explorer.html.
+ <img alt="Background Remover test.html page" src="../../img/test.html.jpg" /></p>
+</li>
+</ol>
+<h2 id="what-next">What next?</h2>
+<p>That's up to you. We've demonstrated a very simple AI module that removes the background from an image. The main work was</p>
+<ol>
+<li>Ensuring you have the assets (eg models) available on a server so they can be downloaded</li>
+<li>Updating the install script so your assets can be downloaded and moved into place, as well as
+    ensuring you have the necessary runtime and libraries installed</li>
+<li>Dropping in your module's code and writing an adapter so it can talk to the CodeProject.AI Server</li>
+<li>Writing a modulesettings file that describes the API for your module</li>
+<li>Testing! Always the fun part.</li>
+</ol>
+<p>The possibilities on what you can add are almost limitless. Our goal is to enable you, as a 
+ developer, to add your own AI modules easily, and in turn get the benefit of modules that others
+ have added. Mix and match, play with different sets of trained modules, experiment with settings
+ and see where you can take this.</p>
+<p>It's about learning and it's about having some fun. Go for it.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      CodeProject Solutions Inc
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
