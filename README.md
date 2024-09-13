@@ -2,7 +2,9 @@
 
 ## CodeProject.AI Server
 
-- ![CodeProjectAI](codeproject.ai/img/codeprojectAI-black.svg){width="100"} - [Read the Docs](codeproject.ai/index.html)
+![CodeProjectAI](codeproject.ai/img/codeprojectAI-black.svg)
+
+- [Read the Docs](codeproject.ai/index.html)
 - [GitHub Project](https://github.com/codeproject/CodeProject.AI-Server)
 - [Server Installers](https://github.com/codeproject/CodeProject.AI-Server-Installers)
 
