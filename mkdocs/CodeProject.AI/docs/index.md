@@ -21,8 +21,7 @@ title: CodeProject.AI Server
 ![CodeProjectAI](img/codeprojectAI-black.svg){width="400"}
 <br>
 </center>
-<br>
-<center>
+
 
 [Docker Images](https://hub.docker.com/r/codeproject/ai-server){ .md-button .md-button--primary .tight }
 [Windows Installer](https://www.codeproject.com/ai/latest.aspx){ .md-button .md-button--primary .tight } &nbsp;
