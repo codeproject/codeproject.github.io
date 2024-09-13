@@ -21,23 +21,30 @@
             --md-text-font: "Roboto";
             --md-code-font: "Roboto Mono"
         }
+        .site-header {
+            background-image: url(codeproject.ai/assets/Images/logo135-bg.gif);
+            white-space: nowrap;
+            overflow: hidden;
+        }        
     </style>
 
     <link rel="stylesheet" href="codeproject.ai/css/site.css">
 
 </head>
 
-<body dir="ltr" class="md-container">
+<body dir="ltr" style="background-color: oldlace;">
+<div class="md-container" style="max-width: 700px; margin: 0 auto; background-color: #ffffff; border: 1px solid #cccc;">
+
+    <div class="site-header">
+		<div class="main-content" style="display:flex;width:100%">
+			<div class="logo">
+                <img title="CodeProject" alt="CodeProject" style="height:135px;width:250px;border-width:0px;"
+                     src="codeproject.ai/img/logo250x135.gif">
+            </div>
+		</div>
+	</div>
 
     <article class="markdown-body entry-content container-lg md-content__inner md-typeset" itemprop="text">
-
-        <div class="markdown-heading" style="margin-bottom: 40px;">
-        <img src="codeproject.ai/img/logo640x100.png" width="640" />
-        <!--
-            <h1 tabindex="-1" class="heading-element" dir="auto">CodeProject</h1>
-        -->
-        </div>
-
 
         <div class="markdown-heading" dir="auto">
             <h2 tabindex="-1" class="heading-element" dir="auto">
@@ -132,3 +139,6 @@
                         Assistant Object Detection</a></li>
             </ul>
     </article>
+</div>
+</body>
+</html>
