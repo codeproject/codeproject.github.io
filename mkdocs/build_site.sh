@@ -17,3 +17,6 @@ else
 fi
 
 popd
+
+cp ../codeproject.ai-server_latest.html ../codeproject.ai/
+mv ../codeproject.ai/codeproject.ai-server_latest.html latest.html
