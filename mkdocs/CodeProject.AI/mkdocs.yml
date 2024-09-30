@@ -1,4 +1,4 @@
-site_name: CodeProject.AI Server v2.8.1
+site_name: CodeProject.AI Server v2.9.0
 site_description: A Guide to using and developing with CodeProject.AI Server
 copyright: CodeProject Solutions Inc
 
@@ -58,8 +58,8 @@ nav:
         - 'About CodeProject.AI': 'about/about.md'
         - 'License': 'about/license.md'
         - 'Release Notes': 'about/release-notes.md'
-        - 'Project Home': 'https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way'
-        - 'Discussions': 'https://www.codeproject.com/Feature/CodeProjectAI-Discussions.aspx'
+        - 'Project Home': 'https://github.com/codeproject/CodeProject.AI-Server'
+        - 'Discussions': 'https://github.com/codeproject/CodeProject.AI-Server/discussions'
         # - 'GitHub': 'https://github.com/codeproject/CodeProject.AI-Server'
 
 extra_css:
@@ -69,7 +69,7 @@ extra_css:
 #    - tags
 
 extra:
-  homepage: https://www.codeproject.com/
+  homepage: https://github.com/codeproject/CodeProject.AI-Server
   analytics:
     provider: google
     property: G-YZNPNQ0F2S

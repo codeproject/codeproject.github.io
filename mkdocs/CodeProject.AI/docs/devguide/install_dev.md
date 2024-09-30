@@ -28,7 +28,7 @@ Apple Silicon), and even directly on a Raspberry Pi or Jetson. Visual Studio 201
 
 <center>
 
-[Download the Latest code](https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way){ .md-button .md-button--primary }
+[Download the code](https://github.com/codeproject/CodeProject.AI-Server/archive/refs/heads/main.zip){ .md-button .md-button--primary }
 &nbsp; &nbsp; &nbsp;
 [Fork on GitHub](https://github.com/codeproject/CodeProject.AI-Server.git){ .md-button  }
 
@@ -36,9 +36,9 @@ Apple Silicon), and even directly on a Raspberry Pi or Jetson. Visual Studio 201
 
 ## Download and Setup the code:
 
-1. [Download the code](https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way) from CodeProject, or clone the [CodeProject.AI repository](https://github.com/codeproject/CodeProject.AI-Server.git) from GitHub
+1. [Download or fork the code](https://github.com/codeproject/CodeProject.AI-Server).
 
-2. In the Solution folder go to /src folder and run the installation scripts:
+2. In the Solution folder go to `/src` folder and run the installation scripts:
     1. For Windows: `setup.bat` 
     2. For Ubuntu and macOS: `bash setup.sh`
     

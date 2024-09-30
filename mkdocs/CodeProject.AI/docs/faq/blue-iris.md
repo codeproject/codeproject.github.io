@@ -4,9 +4,9 @@ tags:
   - Blue-Iris
 ---
 
-## Unable to load model at C:\Program Files\CodeProject\AI\modules\ObjectDetectionYolo\<wbr>assets\yolov5m.pt
+## Unable to load model at C:\Program Files\CodeProject\AI\modules\ObjectDetectionYolo\assets\yolov5m.pt
 
-This issue comes from the [CodeProject.AI Server forums](https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way?msg=5905025#xx5905025xx). In this post, the user encountered the following error on their CodeProject.AI Server console.
+A user encountered the following error on their CodeProject.AI Server console.
 
 ```
 1:08:29 PM: Object Detection (YOLO): Unable to load model at C:\Program Files\CodeProject\AI\modules\ObjectDetectionYolo\assets\yolov5m.pt (CUDA error: no kernel image is available for execution on the device
@@ -18,7 +18,7 @@ In this case the user was using an NVIDIA GeForce GTX 660, with driver version 3
 
 ## CodeProject.AI Server log shows requests every minute or less when there is no motion detection
 
-This issue also comes from the[CodeProject.AI Server forums](https://www.codeproject.com/Messages/5904317/BI-seems-to-be-sending-requests-to-CP-AI-when-ther). In this instance the user was seeing requests in the CodeProject.AI Server log every minute or less when there was no motion detection.
+In this instance a user was seeing requests in the CodeProject.AI Server log every minute or less when there was no motion detection.
 
 ![Detect Ignore Static Objects](../img/detect-ignore-static-objects.png)
 

@@ -260,7 +260,7 @@ adapter file to start the process.
         "License": "SSPL",
         "LicenseUrl": "https://www.mongodb.com/licensing/server-side-public-license",
         "Author": "Chris Maunder",
-        "Homepage": "https://codeproject.com/ai",
+        "Homepage": "https://codeproject.ai",
         "BasedOn": "rembg",
         "BasedOnUrl": "https://github.com/danielgatis/rembg"
       },

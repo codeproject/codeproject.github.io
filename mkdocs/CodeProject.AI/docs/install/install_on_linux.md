@@ -9,7 +9,7 @@ tags:
 
 To **install CodeProject.AI** as a standalone service ready for integration with applications
 such as HomeAssist or BlueIris on Linux, download the 
-[latest installation package](https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way)
+[latest installation package](https://codeproject.github.io/codeproject.ai/latest.html)
 being careful to ensure you choose the x64 (Intel chips) or arm64 (Arm chips such as
 Raspberry Pi or Orange Pi).
 

@@ -66,7 +66,7 @@ Our **PublishingInfo** section will contain:
   "License"     : "AGPL-3.0",
   "LicenseUrl"  : "https://www.gnu.org/licenses/agpl-3.0.en.html",
   "Author"      : "Chris Maunder",
-  "Homepage"    : "https://codeproject.com/ai",
+  "Homepage"    : "https://codeproject.ai",
   "BasedOn"     : "ultralytics",                         // What project is this based on?
   "BasedOnUrl"  : "https://github.com/ultralytics/ultralytics" // The URL for that project
 }

@@ -22,7 +22,7 @@
     
     
       
-        <title>Blue Iris Webcam Software - CodeProject.AI Server v2.8.1</title>
+        <title>Blue Iris Webcam Software - CodeProject.AI Server v2.9.0</title>
       
     
     
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="https://www.codeproject.com/" title="CodeProject.AI Server v2.8.1" class="md-header__button md-logo" aria-label="CodeProject.AI Server v2.8.1" data-md-component="logo">
+    <a href="https://github.com/codeproject/CodeProject.AI-Server" title="CodeProject.AI Server v2.9.0" class="md-header__button md-logo" aria-label="CodeProject.AI Server v2.9.0" data-md-component="logo">
       
   <img src="../img/FavIcon.png" alt="logo">
 
@@ -105,7 +105,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            CodeProject.AI Server v2.8.1
+            CodeProject.AI Server v2.9.0
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -186,12 +186,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://www.codeproject.com/" title="CodeProject.AI Server v2.8.1" class="md-nav__button md-logo" aria-label="CodeProject.AI Server v2.8.1" data-md-component="logo">
+    <a href="https://github.com/codeproject/CodeProject.AI-Server" title="CodeProject.AI Server v2.9.0" class="md-nav__button md-logo" aria-label="CodeProject.AI Server v2.9.0" data-md-component="logo">
       
   <img src="../img/FavIcon.png" alt="logo">
 
     </a>
-    CodeProject.AI Server v2.8.1
+    CodeProject.AI Server v2.9.0
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1329,7 +1329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way" class="md-nav__link">
+      <a href="https://github.com/codeproject/CodeProject.AI-Server" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1350,7 +1350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="https://www.codeproject.com/Feature/CodeProjectAI-Discussions.aspx" class="md-nav__link">
+      <a href="https://github.com/codeproject/CodeProject.AI-Server/discussions" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -1493,15 +1493,15 @@
 
   <h1>Blue Iris Webcam Software</h1>
 
-<h2 id="unable-to-load-model-at-cprogram-filescodeprojectaimodulesobjectdetectionyoloassetsyolov5mpt">Unable to load model at C:\Program Files\CodeProject\AI\modules\ObjectDetectionYolo\<wbr>assets\yolov5m.pt</h2>
-<p>This issue comes from the <a href="https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way?msg=5905025#xx5905025xx">CodeProject.AI Server forums</a>. In this post, the user encountered the following error on their CodeProject.AI Server console.</p>
+<h2 id="unable-to-load-model-at-cprogram-filescodeprojectaimodulesobjectdetectionyoloassetsyolov5mpt">Unable to load model at C:\Program Files\CodeProject\AI\modules\ObjectDetectionYolo\assets\yolov5m.pt</h2>
+<p>A user encountered the following error on their CodeProject.AI Server console.</p>
 <div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>1:08:29 PM: Object Detection (YOLO): Unable to load model at C:\Program Files\CodeProject\AI\modules\ObjectDetectionYolo\assets\yolov5m.pt (CUDA error: no kernel image is available for execution on the device
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>1:08:29 PM: Object Detection (YOLO): Unable to create YOLO detector for model yolov5m
 </code></pre></div>
 <p><img alt="CodeProject.AI Stop YOLO" src="../img/codeprojetcai-server-stop-yolo.png" />
 In this case the user was using an NVIDIA GeForce GTX 660, with driver version 30.0.14.73481. This card has compute capability 3.0 which, at the time of the message's posting was below what CodeProject.AI Server supported. However, this user was also trying to use YOLO detection, which only works for custom models. The fix for this is to go to the CodeProject.AI Server dashboard, stop <strong>Object Detection (YOLO)</strong> by clicking the three dots next to it on the dashboard, selecting <strong>Stop</strong>, then going to <strong>Object Detection (.NET)</strong>, clicking on the the three dots and choosing <strong>Start</strong>.</p>
 <h2 id="codeprojectai-server-log-shows-requests-every-minute-or-less-when-there-is-no-motion-detection">CodeProject.AI Server log shows requests every minute or less when there is no motion detection</h2>
-<p>This issue also comes from the<a href="https://www.codeproject.com/Messages/5904317/BI-seems-to-be-sending-requests-to-CP-AI-when-ther">CodeProject.AI Server forums</a>. In this instance the user was seeing requests in the CodeProject.AI Server log every minute or less when there was no motion detection.</p>
+<p>In this instance a user was seeing requests in the CodeProject.AI Server log every minute or less when there was no motion detection.</p>
 <p><img alt="Detect Ignore Static Objects" src="../img/detect-ignore-static-objects.png" /></p>
 <p>Within Blue Iris there is an option within the <strong>AI</strong> tab in the camera settings panel called "<strong>Detect/Ignore static objects</strong>" where Blue Iris checks for static objects. If this box is checked, there will be a steady stream of requests in the CodeProject.AI Server log, because Blue Iris is constantly checking for static objects. Unchecking the "<strong>Detect/Ignore static objects</strong>" box and hitting <strong>OK</strong> resolves the issue.</p>
 <h2 id="browser-cannot-open-port-321678">Browser cannot open port 321678</h2>

@@ -8,7 +8,7 @@ tags:
 # Installing CodeProject.AI Server on macOS
 
 To **install CodeProject.AI** as a standalone service ready for integration with applications such as HomeAssist or BlueIris on macOS, download the 
-[latest installation package](https://www.codeproject.com/Articles/5322557/CodeProject-AI-Server-AI-the-easy-way) for macOS.
+[latest installation package](https://codeproject.github.io/codeproject.ai/latest.html) for macOS.
 
 Unzip and double click the .pkg package. This will install the server as a Login Item. CodeProject.AI
 Server and the backend analysis services will run each time you log in. 

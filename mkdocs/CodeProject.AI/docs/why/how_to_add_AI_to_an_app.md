@@ -244,6 +244,6 @@ CodeProject.AI Server as a means to wrap up this complexity into a self containe
 all the grunt work for you. Once installed you were immediately at the point were you could start 
 playing with, and using, AI in your apps.
 
-[Download the Latest version](https://www.codeproject.com/ai/latest.aspx) and give it a try.
+[Download the Latest version](https://codeproject.github.io/codeproject.ai/latest.html) and give it a try.
 
 

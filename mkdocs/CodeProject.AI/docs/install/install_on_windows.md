@@ -9,7 +9,7 @@ tags:
 
 To **install CodeProject.AI** as a standalone service ready for integration with applications
 such as HomeAssist or BlueIris, download the 
-[latest installation package](https://www.codeproject.com/ai/latest.aspx).
+[latest installation package](https://codeproject.github.io/codeproject.ai/latest.html).
 
 For NVIDIA GPU support, ensure you have the latest [NVidia CUDA drivers](https://www.nvidia.com/download/index.aspx) installed.
 

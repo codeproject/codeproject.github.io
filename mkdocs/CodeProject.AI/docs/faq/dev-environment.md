@@ -88,7 +88,7 @@ To specify a different folder to use for custom models, you can
 
     This mounts the `C:\MyCustomModels` directory on my local system and maps it to the /app/modules/ObjectDetectionYolo/custom-models folder in the Docker container. Now, when CodeProject.AI Server is looking for the list of custom models, it will look in `C:\MyCustomModels` rather than `/app/modules/ObjectDetectionYolo/custom-models`
 
-    See the [API Reference - CodeProject.AI Server](https://www.codeproject.com/AI/docs/api/api_reference.html#custom-object-detector)
+    See the [API Reference - CodeProject.AI Server](https://codeproject.github.io/codeproject.ai/api/api_reference.html)
 
 
 ## Server startup failed

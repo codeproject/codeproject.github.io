@@ -24,10 +24,10 @@ title: CodeProject.AI Server
 
 
 [Docker Images](https://hub.docker.com/r/codeproject/ai-server){ .md-button .md-button--primary .tight }
-[Windows Installer](https://www.codeproject.com/ai/latest.aspx){ .md-button .md-button--primary .tight } &nbsp;
+[Windows Installer](https://codeproject.github.io/codeproject.ai/latest.html){ .md-button .md-button--primary .tight } &nbsp;
 [API Docs](./api/api_reference.md){ .md-button .tight } &nbsp;
 [GitHub](https://github.com/codeproject/CodeProject.AI-Server){ .md-button .tight } &nbsp;
-[Discussions](https://www.codeproject.com/Feature/CodeProjectAI-Discussions.aspx){ .md-button .md-outline-button--primary .tight } 
+[Discussions](https://github.com/codeproject/CodeProject.AI-Server/discussions){ .md-button .md-outline-button--primary .tight } 
 
 </center>
 
@@ -54,7 +54,7 @@ use.
 
 #### 1: Running and playing with the features
 
-1. [**Download the latest version**](https://www.codeproject.com/ai/latest.aspx), install, and launch the shortcut to the server's dashboard on your desktop.
+1. [**Download the latest version**](https://codeproject.github.io/codeproject.ai/latest.html), install, and launch the shortcut to the server's dashboard on your desktop.
 2. On the dashboard, top and center, is a link to the CodeProject.AI Explorer. Open that and play!
 
 #### 2: Running and debugging the code
