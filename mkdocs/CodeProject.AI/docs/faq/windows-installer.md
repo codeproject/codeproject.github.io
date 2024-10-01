@@ -54,7 +54,7 @@ Please ensure you have the NVidia CUDA drivers installed:
 
 1.  Install the [CUDA 11.7 Drivers](https://www.nvidia.com/Download/index.aspx)
 2.  Install the [CUDA Toolkit 11.7](https://developer.nvidia.com/cuda-downloads).
-3.  Download and run our [cuDNN install script](/KB/Articles/5322557/install_CUDnn.zip).
+3.  Download and run our [cuDNN install script](https://www.codeproject.com/KB/Articles/5322557/install_CUDnn.zip).
 
 ## CodeProject.AI Server stops randomly (often at the same time of the day)
 

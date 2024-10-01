@@ -15,7 +15,8 @@ almost everywhere. The beauty is you don't have to worry about installing
 drivers or packages or having version conflicts: everything you need to run is in
 the container, ready to go.
 
-To run CodeProject.AI Server in Docker you will need to [download and install](https://www.docker.com/) Docker Desktop. This will install the runtime and desktop manager.
+To run CodeProject.AI Server in Docker you will need to [download and install](https://www.docker.com/)
+Docker Desktop. This will install the runtime and desktop manager.
 
 ## CodeProject.AI Server images
 
@@ -393,11 +394,11 @@ Then open a command line and type:
 
 Open Docker Desktop and select the Containers tab and click on the container name
 
-![Container name](../img/container-name.PNG)
+![Container name](../img/container-name.png)
 
 This will open up the container. There are a number of tabs that let you get information about the container. Click on the **Files** tab. This is where you would add/delete file from Volumes as they are mapped to directories in the container file system.
 
-![Custom models folder](../img/custom-models.PNG)
+![Custom models folder](../img/custom-models.png)
 
 You can navigate to the custom-models directory, then drag and drop your custom model onto the folder name. 
 

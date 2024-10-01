@@ -390,7 +390,7 @@ module specific settings which are set using the form `Modules:ModuleName:Settin
 ``` cmd title='Command line'
 docker run -e Modules:TextSummary:AutoStart=False --name CodeProject.AI-Server ...
 ```
-Also see the section [Global Command Line Parameters](#global-command-line-parameter-overrides) for
+Also see the section [Global Command Line Parameters](#global-server-settings) for
 a list of global parameters that can be modified using the form `--setting=value`
 
 ### Option 5. Via the Settings API
