@@ -31,6 +31,7 @@ nav:
         - 'The modulesettings files': 'devguide/modulesettings_json.md'
         - 'Install scripts': 'devguide/install_scripts.md'
         - 'Python requirements files': 'devguide/python_req_text.md'
+        - 'Queues and Routes': 'devguide/queues_and_routes.md'
         - 'Using Triggers': 'devguide/triggers.md'
         - Adding New Modules:
             - 'So you want to add new module to CodeProject.AI': 'devguide/module_examples/adding_new_modules.md'
@@ -45,12 +46,12 @@ nav:
     - 'FAQ': 
         - 'faq/windows-installer.md'
         - 'faq/docker.md' 
-        - 'faq\mesh-faq.md'
+        - 'faq/mesh-faq.md'
         - 'faq/virtual-machine.md'
         - 'faq/gpu.md' 
         - 'faq/coral.md' 
         - 'faq/raspberry-pi.md'
-        - 'faq\jetson.md'
+        - 'faq/jetson.md'
         - 'faq/home-assistant.md'
         - 'faq/blue-iris.md'
         - 'faq/dev-environment.md'
