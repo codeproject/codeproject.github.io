@@ -14,7 +14,7 @@ source $(dirname "$0")/utils.sh
 
 useColor="true"
 
-clear
+# clear
 
 # verbosity can be: quiet | info | loud
 verbosity="quiet"
@@ -122,7 +122,7 @@ writeLine "Done" $color_success
 setupPython 3.9
 
 write "Installing MKDocs..." 
-installPythonPackages 3.9 "${absoluteRootDir}/mkdocs" "mkdocs"
+installPythonPackages 3.9 "${absoluteRootDir}" "mkdocs"
 writeLine "Done" "DarkGreen" 
 
 
