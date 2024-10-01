@@ -25,6 +25,7 @@ nav:
         - 'CodeProject.AI on macOS'    : 'install/install_on_macos.md'
         - 'CodeProject.AI on a Jetson' : 'install/install_on_jetson.md'
         - 'CodeProject.AI Server Mesh' : 'features/mesh.md'
+        - 'CodeProject.AI Modules'     : 'features/modules.md'
     - 'Development Guide':
         - 'Setting up the Dev Environment': 'devguide/install_dev.md'
         - 'The modulesettings files': 'devguide/modulesettings_json.md'
