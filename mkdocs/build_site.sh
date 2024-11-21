@@ -19,4 +19,4 @@ cp -r ./site/* ../../codeproject.ai/
 
 popd
 
-cp ../codeproject.ai-server_latest.html ./codeproject.ai/latest.html
+cp ../codeproject.ai-server_latest.html ../codeproject.ai/latest.html

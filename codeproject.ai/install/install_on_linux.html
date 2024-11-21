@@ -18,15 +18,15 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.39">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
     
     
       
-        <title>Installing CodeProject.AI Server on Linux - CodeProject.AI Server v2.9.0</title>
+        <title>Installing CodeProject.AI Server on Linux - CodeProject.AI Server v2.9.1</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.8c3ca2c6.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
       
       
 
@@ -92,7 +92,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="https://github.com/codeproject/CodeProject.AI-Server" title="CodeProject.AI Server v2.9.0" class="md-header__button md-logo" aria-label="CodeProject.AI Server v2.9.0" data-md-component="logo">
+    <a href="https://github.com/codeproject/CodeProject.AI-Server" title="CodeProject.AI Server v2.9.1" class="md-header__button md-logo" aria-label="CodeProject.AI Server v2.9.1" data-md-component="logo">
       
   <img src="../img/FavIcon.png" alt="logo">
 
@@ -105,7 +105,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            CodeProject.AI Server v2.9.0
+            CodeProject.AI Server v2.9.1
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -186,12 +186,12 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://github.com/codeproject/CodeProject.AI-Server" title="CodeProject.AI Server v2.9.0" class="md-nav__button md-logo" aria-label="CodeProject.AI Server v2.9.0" data-md-component="logo">
+    <a href="https://github.com/codeproject/CodeProject.AI-Server" title="CodeProject.AI Server v2.9.1" class="md-nav__button md-logo" aria-label="CodeProject.AI Server v2.9.1" data-md-component="logo">
       
   <img src="../img/FavIcon.png" alt="logo">
 
     </a>
-    CodeProject.AI Server v2.9.0
+    CodeProject.AI Server v2.9.1
   </label>
   
   <ul class="md-nav__list" data-md-scrollfix>
@@ -1523,20 +1523,26 @@ being careful to ensure you choose the x64 (Intel chips) or arm64 (Arm chips suc
 Raspberry Pi or Orange Pi).</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <h3 id="nvidia-gpu-support">NVIDIA GPU support</h3>
-<p>For NVIDIA GPU support, ensure you have the latest <a href="https://www.nvidia.com/download/index.aspx">NVidia CUDA drivers</a> installed.</p>
+<p>For NVIDIA GPU support, ensure you have the latest <a href="https://www.nvidia.com/download/index.aspx">NVIDIA CUDA drivers</a> installed.</p>
 <h3 id="net-runtime">.NET runtime</h3>
 <p>Ensure you have the .NET runtime installed by calling</p>
-<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>dotnet-sdk-7.0
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>dotnet-sdk-9.0
 </code></pre></div>
-<p>.NET will be installed when <strong>you</strong> run the post-install step</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please review Microsoft's guide to <a href="https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-install?tabs=dotnet9&amp;pivots=os-linux-ubuntu-2410">installing .NET on Ubuntu</a>.
+.NET 9 is still in its early days so installing still has some
+rough edges.</p>
+</div>
+<p>Once you have .NET installed run the post-install step:</p>
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">pushd</span><span class="w"> </span><span class="s2">&quot;/usr/bin/codeproject.ai-server-2.9.1/server&quot;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>bash<span class="w"> </span>../setup.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">popd</span>
 </code></pre></div>
 <h2 id="running-the-installer">Running the installer</h2>
 <p>Unzip the .deb package, right-click and choose "install", or run
 <div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-i<span class="w"> </span>codeproject.ai-server_2.9.1_Ubuntu_x64.deb
 </code></pre></div>
-Change the file name to match the version you downloaded.</p>
-<p>This will install the server running under systemd. CodeProject.AI
+(Assuming you are downloading version 2.9.1)</p>
+<p>This will install the server running under <code>systemd</code>. CodeProject.AI
 Server and the backend analysis services will now be running. The front-end server and the 
 analysis services will automatically restart each time your machine is restarted.</p>
 <p>To manually start the service, run the command
@@ -1552,9 +1558,8 @@ Open <a href="http://localhost:32168/explorer.html">http://localhost:32168/explo
 There is also a link to this at the top of the Dashboard.</p>
 <h2 id="to-uninstall-codeprojectai">To uninstall CodeProject.AI.</h2>
 <p>To uninstall CodeProject.AI Server run</p>
-<p><div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-r<span class="w"> </span>codeproject.ai-server
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>dpkg<span class="w"> </span>-r<span class="w"> </span>codeproject.ai-server
 </code></pre></div>
-Replace the version (2.9.1) with the version of the server you wish to uninstall.</p>
 
 
 
@@ -1619,7 +1624,7 @@ Replace the version (2.9.1) with the version of the server you wish to uninstall
     <script id="__config" type="application/json">{"base": "..", "features": ["navigation.sections", "navigation.top"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.525ec568.min.js"></script>
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
       
     
   </body>
