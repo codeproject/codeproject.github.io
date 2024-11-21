@@ -17,31 +17,39 @@ Raspberry Pi or Orange Pi).
 
 ### NVIDIA GPU support
 
-For NVIDIA GPU support, ensure you have the latest [NVidia CUDA drivers](https://www.nvidia.com/download/index.aspx) installed.
+For NVIDIA GPU support, ensure you have the latest [NVIDIA CUDA drivers](https://www.nvidia.com/download/index.aspx) installed.
 
 ### .NET runtime
 
 Ensure you have the .NET runtime installed by calling
 
 ```bash
-sudo apt update && sudo apt install dotnet-sdk-7.0
+sudo apt update && sudo apt install dotnet-sdk-9.0
 ```
 
-.NET will be installed when **you** run the post-install step
+
+!!! Note
+
+    Please review Microsoft's guide to [installing .NET on Ubuntu](https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-install?tabs=dotnet9&pivots=os-linux-ubuntu-2410).
+    .NET 9 is still in its early days so installing still has some
+    rough edges.
+
+
+Once you have .NET installed run the post-install step:
 
 ```bash
-pushd "/usr/bin/codeproject.ai-server-2.6.2/server" && bash ../setup.sh && popd
+pushd "/usr/bin/codeproject.ai-server-2.9.1/server" && bash ../setup.sh && popd
 ```
 
 ## Running the installer
 
 Unzip the .deb package, right-click and choose "install", or run
 ```bash
-sudo dpkg -i codeproject.ai-server_2.6.2_Ubuntu_x64.deb
+sudo dpkg -i codeproject.ai-server_2.9.1_Ubuntu_x64.deb
 ```
-Change the file name to match the version you downloaded.
+(Assuming you are downloading version 2.9.1)
 
-This will install the server running under systemd. CodeProject.AI
+This will install the server running under `systemd`. CodeProject.AI
 Server and the backend analysis services will now be running. The front-end server and the 
 analysis services will automatically restart each time your machine is restarted.
 
@@ -60,8 +68,8 @@ CodeProject.AI Dashboard.  This will provide you with details of the server oper
 
 ## Play with the Server
 We provide a sample application written in HTML and JavaScript that performs various AI operations.
-Open [http://localhost:32168/vision.html](http://localhost:32168/vision.html) in a browser. 
-There is also a link to this at the bottom of the Dashboard.
+Open [http://localhost:32168/explorer.html](http://localhost:32168/explorer.html) in a browser. 
+There is also a link to this at the top of the Dashboard.
 
 ## To uninstall CodeProject.AI.
 
@@ -70,4 +78,4 @@ To uninstall CodeProject.AI Server run
 ```bash
 sudo dpkg -r codeproject.ai-server
 ```
-Replace the version (2.6.2) with the version of the server you wish to uninstall.
+
