@@ -1,5 +1,20 @@
 # Release Notes
 
+### Release 2.9 Beta
+
+ - Updated to .NET 9
+ - Support for Ubuntu 24.10
+ - Improved CUDA 12 support
+ - Improvements to CUDA support in Windows and Linux
+ - Further Windows arm64 fixes
+ - Further macOS arm64 fixes
+ - General dev environment setup fixes
+ - Fixes for Windows installer when wget is missing
+
+### Release 2.8 Beta
+
+- General fixes and reorg of project
+
 ### Release 2.6 Beta
 
  - You can now select, at install time, which modules you wish to have initially installed

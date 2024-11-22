@@ -1,4 +1,4 @@
-site_name: CodeProject.AI Server v2.9.1
+site_name: CodeProject.AI Server v2.9.2
 site_description: A Guide to using and developing with CodeProject.AI Server
 copyright: CodeProject Solutions Inc
 
@@ -44,6 +44,7 @@ nav:
         - 'API Reference': 'api/api_reference.md'
         - 'Module Settings': 'api/module_settings.md'
     - 'FAQ': 
+        - 'faq/index.md'
         - 'faq/windows-installer.md'
         - 'faq/docker.md' 
         - 'faq/mesh-faq.md'

@@ -26,6 +26,7 @@ title: CodeProject.AI Server
 [Docker Images](https://hub.docker.com/r/codeproject/ai-server){ .md-button .md-button--primary .tight }
 [Windows Installer](https://codeproject.github.io/codeproject.ai/latest.html){ .md-button .md-button--primary .tight } &nbsp;
 [API Docs](./api/api_reference.md){ .md-button .tight } &nbsp;
+[FAQs](./faq/index.md){ .md-button .tight } &nbsp;
 [GitHub](https://github.com/codeproject/CodeProject.AI-Server){ .md-button .tight } &nbsp;
 [Discussions](https://github.com/codeproject/CodeProject.AI-Server/discussions){ .md-button .md-outline-button--primary .tight } 
 
