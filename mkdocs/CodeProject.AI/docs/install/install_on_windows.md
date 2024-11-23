@@ -29,10 +29,12 @@ CodeProject.AI Dashboard.  This will provide you with details of the server oper
 
 ## Play with the Server
 We provide a sample application written in HTML and JavaScript that performs various AI operations.
-Open [http://localhost:32168/vision.html](http://localhost:32168/vision.html) in a browser. 
-There is also a link to this at the bottom of the Dashboard.
+Open [http://localhost:32168/explorer.html](http://localhost:32168/explorer.html) in a browser. 
+There is also a link to this at the top of the Dashboard.
 
+<!--
 ## Get some test images
 
 Load [http://localhost:32168/testdata.zip](http://localhost:32168/testdata.zip) (after launching 
 CodeProject.AI server) to download some test images for use with the CodeProject.AI explorer.
+-->

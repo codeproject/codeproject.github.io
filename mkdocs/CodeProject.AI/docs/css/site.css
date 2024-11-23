@@ -44,6 +44,12 @@ h1 .md-button {
     height: 0.4rem;
     width: 0.4rem;
 }
+
+.md-nav__item--section>.md-nav__link[for] {
+    color:#333 !important;
+    font-size:120%;
+}
+
 nav[data-md-level="0"] > label {
     font-size: 110%;
 }

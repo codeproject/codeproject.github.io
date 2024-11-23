@@ -85,6 +85,9 @@ fi
 
 checkForTool wget
 checkForTool unzip
+checkForTool xdg-utils
+
+sudo snap install chromium
 
 # if [ "$platform" == "linux" ] && [ "$EUID" -ne 0 ]; then
 #    writeLine "Please run this script as root: sudo bash setup.sh" $color_error
