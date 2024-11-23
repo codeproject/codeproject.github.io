@@ -2,7 +2,7 @@
   {
     "ModuleId": "ALPR",
     "Name": "License Plate Reader",
-    "Version": "3.3.0",
+    "Version": "3.3.1",
     "PublishingInfo": {
       "Description": "Detects and readers single-line and multi-line license plates using YOLO object detection and the PaddleOCR toolkit",
       "IconURL": "",
@@ -295,10 +295,20 @@
           "ModuleVersion": "3.3.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.0"
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "3.3.1",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-11-23",
+          "ReleaseNotes": "Improved cuDNN check",
           "Importance": null
         }
       ]
@@ -913,7 +923,7 @@
   {
     "ModuleId": "FaceProcessing",
     "Name": "Face Processing",
-    "Version": "1.12.0",
+    "Version": "1.12.1",
     "PublishingInfo": {
       "Description": "A number of Face image APIs including detect, recognize, and compare.",
       "IconURL": null,
@@ -1150,6 +1160,16 @@
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.12.1",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-11-23",
+          "ReleaseNotes": "Corrected deprecated torch.load",
           "Importance": null
         }
       ]
@@ -1399,7 +1419,7 @@
   {
     "ModuleId": "MultiModeLLM",
     "Name": "MultiModeLLM",
-    "Version": "1.0.0",
+    "Version": "1.1.0",
     "PublishingInfo": {
       "Description": "A multi-modal Large Language Model",
       "IconURL": "",
@@ -1424,10 +1444,20 @@
           "ModuleVersion": "1.0.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.0"
           ],
           "ReleaseDate": "2024-08-04",
           "ReleaseNotes": "Initial release",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.1.0",
+          "ServerVersionRange": [
+            "2.9.1",
+            ""
+          ],
+          "ReleaseDate": "2024-11-19",
+          "ReleaseNotes": "Optional image, corrections for CUDA 12",
           "Importance": null
         }
       ]
@@ -2253,7 +2283,7 @@
   {
     "ModuleId": "OCR",
     "Name": "Optical Character Recognition",
-    "Version": "2.2.0",
+    "Version": "2.2.1",
     "PublishingInfo": {
       "Description": "Provides OCR support using the PaddleOCR toolkit",
       "IconURL": "",
@@ -2471,6 +2501,16 @@
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
           "Importance": null
+        },
+        {
+          "ModuleVersion": "2.2.1",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-11-23",
+          "ReleaseNotes": "Improved cuDNN check",
+          "Importance": null
         }
       ]
     },
@@ -2479,7 +2519,7 @@
   {
     "ModuleId": "PortraitFilter",
     "Name": "Portrait Filter",
-    "Version": "2.1.0",
+    "Version": "2.2.0",
     "PublishingInfo": {
       "Description": "Provides a depth-of-field (bokeh) effect on images. Great for selfies.",
       "IconURL": "",
@@ -2671,10 +2711,20 @@
           "ModuleVersion": "2.1.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.0"
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.2.0",
+          "ServerVersionRange": [
+            "2.9.1",
+            ""
+          ],
+          "ReleaseDate": "2024-11-17",
+          "ReleaseNotes": "Updated to .NET 9",
           "Importance": null
         }
       ]
@@ -2890,7 +2940,7 @@
   {
     "ModuleId": "SentimentAnalysis",
     "Name": "Sentiment Analysis",
-    "Version": "2.1.0",
+    "Version": "2.2.0",
     "PublishingInfo": {
       "Description": "Provides an analysis of the sentiment of a piece of text. Positive or negative?",
       "IconURL": "",
@@ -3023,7 +3073,7 @@
           "ModuleVersion": "1.6.2",
           "ServerVersionRange": [
             "2.5.0-RC6",
-            ""
+            "2.5.1"
           ],
           "ReleaseDate": "2024-01-16",
           "ReleaseNotes": "Updated modulesettings schema",
@@ -3033,7 +3083,7 @@
           "ModuleVersion": "1.6.3",
           "ServerVersionRange": [
             "2.5.0-RC6",
-            ""
+            "2.5.1"
           ],
           "ReleaseDate": "2024-01-18",
           "ReleaseNotes": "Updated explorer",
@@ -3043,7 +3093,7 @@
           "ModuleVersion": "1.7.0",
           "ServerVersionRange": [
             "2.5.0-RC6",
-            ""
+            "2.5.1"
           ],
           "ReleaseDate": "2024-01-21",
           "ReleaseNotes": "Module performance statistics added",
@@ -3083,10 +3133,20 @@
           "ModuleVersion": "2.1.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.0"
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.2.0",
+          "ServerVersionRange": [
+            "2.9.1",
+            ""
+          ],
+          "ReleaseDate": "2024-11-17",
+          "ReleaseNotes": "Updated to .NET 9",
           "Importance": null
         }
       ]
@@ -3271,7 +3331,7 @@
   {
     "ModuleId": "SuperResolution",
     "Name": "Super Resolution",
-    "Version": "2.2.0",
+    "Version": "2.2.1",
     "PublishingInfo": {
       "Description": "Increases the resolution of an image using AI",
       "IconURL": "",
@@ -3518,6 +3578,16 @@
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
           "Importance": null
+        },
+        {
+          "ModuleVersion": "2.2.1",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-11-23",
+          "ReleaseNotes": "Install fixes for macOS",
+          "Importance": null
         }
       ]
     },
@@ -3526,7 +3596,7 @@
   {
     "ModuleId": "Text2Image",
     "Name": "Text to Image",
-    "Version": "1.3.0",
+    "Version": "1.3.1",
     "PublishingInfo": {
       "Description": "Generates an image from a text prompt.",
       "IconURL": null,
@@ -3624,6 +3694,16 @@
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.3.1",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-11-23",
+          "ReleaseNotes": "Improved CUDA 12 support",
           "Importance": null
         }
       ]
@@ -3848,7 +3928,7 @@
   {
     "ModuleId": "ObjectDetectionYOLOv5Net",
     "Name": "Object Detection (YOLOv5 .NET)",
-    "Version": "1.11.0",
+    "Version": "1.12.0",
     "PublishingInfo": {
       "Description": "Provides Object Detection using YOLOv5 ONNX models with DirectML. This module is best for those on Windows and Linux without CUDA enabled GPUs",
       "IconURL": null,
@@ -3857,7 +3937,7 @@
       "License": "MIT",
       "LicenseUrl": "https://opensource.org/licenses/MIT",
       "Author": "Matthew Dennis",
-      "Homepage": "https://codeproject.com/ai",
+      "Homepage": "https://codeproject.github.io/codeproject.ai",
       "BasedOn": "yolov5-net",
       "BasedOnUrl": "https://github.com/techwingslab/yolov5-net"
     },
@@ -4031,10 +4111,20 @@
           "ModuleVersion": "1.11.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.0"
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.12.0",
+          "ServerVersionRange": [
+            "2.9.1",
+            ""
+          ],
+          "ReleaseDate": "2024-11-17",
+          "ReleaseNotes": "Updated to .NET 9",
           "Importance": null
         }
       ]
@@ -4053,7 +4143,7 @@
       "License": "GPL-3.0",
       "LicenseUrl": "https://opensource.org/licenses/GPL-3.0",
       "Author": "Matthew Dennis",
-      "Homepage": "https://codeproject.com/ai",
+      "Homepage": "https://codeproject.github.io/codeproject.ai",
       "BasedOn": "Ultralytics YOLOv5",
       "BasedOnUrl": "https://github.com/ultralytics/yolov5"
     },
@@ -4181,7 +4271,7 @@
   {
     "ModuleId": "ObjectDetectionYOLOv5-3.1",
     "Name": "Object Detection (YOLOv5 3.1)",
-    "Version": "1.11.0",
+    "Version": "1.12.0",
     "PublishingInfo": {
       "Description": "Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.",
       "IconURL": null,
@@ -4338,6 +4428,16 @@
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.12.0",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-11-23",
+          "ReleaseNotes": "Improved CUDA 12 support",
           "Importance": null
         }
       ]
@@ -4526,7 +4626,7 @@
   {
     "ModuleId": "ObjectDetectionNet",
     "Name": "Object Detection (YOLOv5 .NET)",
-    "Version": "1.11.0",
+    "Version": "1.12.0",
     "PublishingInfo": {
       "Description": "Provides Object Detection using YOLOv5 ONNX models with DirectML. This module is best for those on Windows and Linux without CUDA enabled GPUs",
       "IconURL": null,
@@ -4535,7 +4635,7 @@
       "License": "MIT",
       "LicenseUrl": "https://opensource.org/licenses/MIT",
       "Author": "Matthew Dennis",
-      "Homepage": "https://codeproject.com/ai",
+      "Homepage": "https://codeproject.github.io/codeproject.ai",
       "BasedOn": "yolov5-net",
       "BasedOnUrl": "https://github.com/techwingslab/yolov5-net"
     },
@@ -4651,7 +4751,7 @@
       "License": "GPL-3.0",
       "LicenseUrl": "https://opensource.org/licenses/GPL-3.0",
       "Author": "Matthew Dennis",
-      "Homepage": "https://codeproject.com/ai",
+      "Homepage": "https://codeproject.github.io/codeproject.ai",
       "BasedOn": "Ultralytics YOLOv5",
       "BasedOnUrl": "https://github.com/ultralytics/yolov5"
     },
@@ -4769,7 +4869,7 @@
   {
     "ModuleId": "Yolov5-3.1",
     "Name": "Object Detection (YOLOv5 3.1)",
-    "Version": "1.11.0",
+    "Version": "1.12.0",
     "PublishingInfo": {
       "Description": "Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.",
       "IconURL": null,
@@ -4974,7 +5074,7 @@
 ]
 /*
 
-Supporting CodeProject.AI Server 2.9.
+Supporting CodeProject.AI Server 2.9.2.
 
 
 ### Computer Audition
@@ -4990,7 +5090,7 @@ Supporting CodeProject.AI Server 2.9.
 
  - **License Plate Reader**<br>
    Detects and readers single-line and multi-line license plates using YOLO object detection and the PaddleOCR toolkit<br>
-   v3.3.0 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
+   v3.3.1 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
    By Mike Lud
 <br>
  - **License Plate Reader (RKNN)**<br>
@@ -5005,18 +5105,18 @@ Supporting CodeProject.AI Server 2.9.
 <br>
  - **Object Detection (YOLOv5 .NET)**<br>
    Provides Object Detection using YOLOv5 ONNX models with DirectML. This module is best for those on Windows and Linux without CUDA enabled GPUs<br>
-   v1.11.0 &nbsp; All Platforms except Windows-arm64 &nbsp; C#, ONNX, DirectML, YOLO<br>
-   Project by [Matthew Dennis](https://codeproject.com/ai), based on [yolov5-net](https://github.com/techwingslab/yolov5-net).
+   v1.12.0 &nbsp; All Platforms except Windows-arm64 &nbsp; C#, ONNX, DirectML, YOLO<br>
+   Project by [Matthew Dennis](https://codeproject.github.io/codeproject.ai), based on [yolov5-net](https://github.com/techwingslab/yolov5-net).
 <br>
  - **Object Detection (YOLOv5 3.1)**<br>
    Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.<br>
-   v1.11.0 &nbsp; All Platforms except macOS &nbsp; Python, PyTorch, YOLO<br>
+   v1.12.0 &nbsp; All Platforms except macOS &nbsp; Python, PyTorch, YOLO<br>
    Project by [Chris Maunder, Matthew Dennis](https://codeproject.com/ai), based on [Deepstack](https://github.com/johnolafenwa/DeepStack).
 <br>
  - **Object Detection (YOLOv5 6.2)**<br>
    Provides Object Detection using YOLOv5 6.2 targeting CUDA 11.5+, PyTorch < 2.0 for newer GPUs.<br>
    v1.10.0 &nbsp; All Platforms except Raspberry Pi,  Jetson &nbsp; <br>
-   Project by [Matthew Dennis](https://codeproject.com/ai), based on [Ultralytics YOLOv5](https://github.com/ultralytics/yolov5).
+   Project by [Matthew Dennis](https://codeproject.github.io/codeproject.ai), based on [Ultralytics YOLOv5](https://github.com/ultralytics/yolov5).
 <br>
  - **Object Detection (YOLOv5 RKNN)**<br>
    Provides Object Detection using YOLOv5 RKNN models. This module only works with Rockchip RK3588/RK3588S NPUs like the Orange Pi 5/5B/5 Plus<br>
@@ -5030,7 +5130,7 @@ Supporting CodeProject.AI Server 2.9.
 <br>
  - **Optical Character Recognition**<br>
    Provides OCR support using the PaddleOCR toolkit<br>
-   v2.2.0 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
+   v2.2.1 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
    By Mike Lud
 <br>
  - **Scene Classification**<br>
@@ -5044,7 +5144,7 @@ Supporting CodeProject.AI Server 2.9.
 
  - **Face Processing**<br>
    A number of Face image APIs including detect, recognize, and compare.<br>
-   v1.12.0 &nbsp; All Platforms except Jetson &nbsp; Python, PyTorch<br>
+   v1.12.1 &nbsp; All Platforms except Jetson &nbsp; Python, PyTorch<br>
    Project by [Chris Maunder, Matthew Dennis](https://codeproject.com/ai), based on [Deepstack](https://github.com/johnolafenwa/DeepStack).
 <br>
 
@@ -5058,12 +5158,12 @@ Supporting CodeProject.AI Server 2.9.
 <br>
  - **MultiModeLLM**<br>
    A multi-modal Large Language Model<br>
-   v1.0.0 &nbsp; Windows,  Linux,  macOS,  macOS &nbsp; Python, Phi-3<br>
+   v1.1.0 &nbsp; Windows,  Linux,  macOS,  macOS &nbsp; Python, Phi-3<br>
    Project by [Chris Maunder](https://codeproject.com/ai), based on [chat-with-phi-3-vision](https://huggingface.co/microsoft/Phi-3-vision-128k-instruct/blob/main/sample_inference.py).
 <br>
  - **Text to Image**<br>
    Generates an image from a text prompt.<br>
-   v1.3.0 &nbsp; Windows,  macOS,  Linux &nbsp; Python, PyTorch, Stable Diffusion<br>
+   v1.3.1 &nbsp; Windows,  macOS,  Linux &nbsp; Python, PyTorch, Stable Diffusion<br>
    Project by [Matthew Dennis](https://codeproject.com/ai), based on [Diffusers](https://github.com/huggingface/diffusers).
 <br>
 
@@ -5082,12 +5182,12 @@ Supporting CodeProject.AI Server 2.9.
 <br>
  - **Portrait Filter**<br>
    Provides a depth-of-field (bokeh) effect on images. Great for selfies.<br>
-   v2.1.0 &nbsp; Windows &nbsp; C#, ONNX, DirectML<br>
+   v2.2.0 &nbsp; Windows &nbsp; C#, ONNX, DirectML<br>
    Project by [Matthew Dennis](https://codeproject.com/ai), based on [C# PortraitModeFilter](https://blog.csdn.net/lw112190/article/details/133831461).
 <br>
  - **Super Resolution**<br>
    Increases the resolution of an image using AI<br>
-   v2.2.0 &nbsp; All Platforms &nbsp; Python, ONNX<br>
+   v2.2.1 &nbsp; All Platforms &nbsp; Python, ONNX<br>
    Project by [Chris Maunder](https://codeproject.com/ai), based on [PyTorch.org example](https://pytorch.org/tutorials/advanced/super_resolution_with_onnxruntime.html?highlight=superresolution).
 <br>
 
@@ -5096,7 +5196,7 @@ Supporting CodeProject.AI Server 2.9.
 
  - **Sentiment Analysis**<br>
    Provides an analysis of the sentiment of a piece of text. Positive or negative?<br>
-   v2.1.0 &nbsp; Windows,  macOS &nbsp; C#, TensorFlow<br>
+   v2.2.0 &nbsp; Windows,  macOS &nbsp; C#, TensorFlow<br>
    Project by [Matthew Dennis](https://codeproject.com/ai), based on [.NET ML Samples](https://github.com/dotnet/samples/tree/main/machine-learning/tutorials/TextClassificationTF).
 <br>
  - **Text Summary**<br>
