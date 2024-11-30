@@ -2,7 +2,7 @@
   {
     "ModuleId": "ALPR",
     "Name": "License Plate Reader",
-    "Version": "3.3.1",
+    "Version": "3.3.3",
     "PublishingInfo": {
       "Description": "Detects and readers single-line and multi-line license plates using YOLO object detection and the PaddleOCR toolkit",
       "IconURL": "",
@@ -305,10 +305,30 @@
           "ModuleVersion": "3.3.1",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-11-23",
           "ReleaseNotes": "Improved cuDNN check",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "3.3.2",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-26",
+          "ReleaseNotes": "Support for dual Ubuntu/Debian install",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "3.3.3",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-29",
+          "ReleaseNotes": "Corrections for CUDA 11.8",
           "Importance": null
         }
       ]
@@ -2098,7 +2118,7 @@
   {
     "ModuleId": "ObjectDetectionYOLOv5-3.1",
     "Name": "Object Detection (YOLOv5 3.1)",
-    "Version": "1.12.0",
+    "Version": "1.12.1",
     "PublishingInfo": {
       "Description": "Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.",
       "IconURL": null,
@@ -2331,7 +2351,7 @@
           "ModuleVersion": "1.11.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
@@ -2341,10 +2361,20 @@
           "ModuleVersion": "1.12.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-11-23",
           "ReleaseNotes": "Improved CUDA 12 support",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.12.1",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-26",
+          "ReleaseNotes": "Support for dual Ubuntu/Debian install",
           "Importance": null
         }
       ]
@@ -2897,7 +2927,7 @@
   {
     "ModuleId": "ObjectDetectionYOLOv8",
     "Name": "Object Detection (YOLOv8)",
-    "Version": "1.6.0",
+    "Version": "1.6.1",
     "PublishingInfo": {
       "Description": "Provides Object Detection in Python\u003E=3.8 using YOLOv8. Great for newer NVIDIA GPUs",
       "IconURL": null,
@@ -3069,10 +3099,20 @@
           "ModuleVersion": "1.6.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.6.1",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-26",
+          "ReleaseNotes": "Support for dual Ubuntu/Debian install",
           "Importance": null
         }
       ]
@@ -3082,7 +3122,7 @@
   {
     "ModuleId": "OCR",
     "Name": "Optical Character Recognition",
-    "Version": "2.2.1",
+    "Version": "2.2.3",
     "PublishingInfo": {
       "Description": "Provides OCR support using the PaddleOCR toolkit",
       "IconURL": "",
@@ -3295,7 +3335,7 @@
           "ModuleVersion": "2.2.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
@@ -3305,10 +3345,30 @@
           "ModuleVersion": "2.2.1",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-11-23",
           "ReleaseNotes": "Improved cuDNN check",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.2.2",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-26",
+          "ReleaseNotes": "Support for dual Ubuntu/Debian install",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.2.3",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-29",
+          "ReleaseNotes": "Corrections for CUDA 11.8",
           "Importance": null
         }
       ]
@@ -4996,7 +5056,7 @@
 ]
 /*
 
-Supporting CodeProject.AI Server 2.9.3.
+Supporting CodeProject.AI Server 2.9.4.
 
 
 ### Computer Audition
@@ -5012,7 +5072,7 @@ Supporting CodeProject.AI Server 2.9.3.
 
  - **License Plate Reader**<br>
    Detects and readers single-line and multi-line license plates using YOLO object detection and the PaddleOCR toolkit<br>
-   v3.3.1 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
+   v3.3.3 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
    By Mike Lud
 <br>
  - **License Plate Reader (RKNN)**<br>
@@ -5032,7 +5092,7 @@ Supporting CodeProject.AI Server 2.9.3.
 <br>
  - **Object Detection (YOLOv5 3.1)**<br>
    Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.<br>
-   v1.12.0 &nbsp; All Platforms except macOS &nbsp; Python, PyTorch, YOLO<br>
+   v1.12.1 &nbsp; All Platforms except macOS &nbsp; Python, PyTorch, YOLO<br>
    Project by [Chris Maunder, Matthew Dennis](https://github.com/codeproject/CodeProject.AI-Server/), based on [Deepstack](https://github.com/johnolafenwa/DeepStack).
 <br>
  - **Object Detection (YOLOv5 6.2)**<br>
@@ -5047,12 +5107,12 @@ Supporting CodeProject.AI Server 2.9.3.
 <br>
  - **Object Detection (YOLOv8)**<br>
    Provides Object Detection in Python>=3.8 using YOLOv8. Great for newer NVIDIA GPUs<br>
-   v1.6.0 &nbsp; All Platforms &nbsp; Python, PyTorch, YOLO<br>
+   v1.6.1 &nbsp; All Platforms &nbsp; Python, PyTorch, YOLO<br>
    Project by [Chris Maunder](https://github.com/codeproject/CodeProject.AI-Server/), based on [ultralytics](https://github.com/ultralytics/ultralytics).
 <br>
  - **Optical Character Recognition**<br>
    Provides OCR support using the PaddleOCR toolkit<br>
-   v2.2.1 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
+   v2.2.3 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
    By Mike Lud
 <br>
  - **Scene Classification**<br>
