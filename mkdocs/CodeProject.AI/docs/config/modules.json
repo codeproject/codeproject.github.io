@@ -2,7 +2,7 @@
   {
     "ModuleId": "ALPR",
     "Name": "License Plate Reader",
-    "Version": "3.3.1",
+    "Version": "3.3.3",
     "PublishingInfo": {
       "Description": "Detects and readers single-line and multi-line license plates using YOLO object detection and the PaddleOCR toolkit",
       "IconURL": "",
@@ -305,10 +305,30 @@
           "ModuleVersion": "3.3.1",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-11-23",
           "ReleaseNotes": "Improved cuDNN check",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "3.3.2",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-26",
+          "ReleaseNotes": "Support for dual Ubuntu/Debian install",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "3.3.3",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-29",
+          "ReleaseNotes": "Corrections for CUDA 11.8",
           "Importance": null
         }
       ]
@@ -2096,9 +2116,818 @@
     "Downloads": 0
   },
   {
+    "ModuleId": "ObjectDetectionYOLOv5-3.1",
+    "Name": "Object Detection (YOLOv5 3.1)",
+    "Version": "1.12.1",
+    "PublishingInfo": {
+      "Description": "Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.",
+      "IconURL": null,
+      "Category": "Computer Vision",
+      "Stack": "Python, PyTorch, YOLO",
+      "License": "GPL-3.0",
+      "LicenseUrl": "https://opensource.org/licenses/GPL-3.0",
+      "Author": "Chris Maunder, Matthew Dennis",
+      "Homepage": "https://github.com/codeproject/CodeProject.AI-Server/",
+      "BasedOn": "Deepstack",
+      "BasedOnUrl": "https://github.com/johnolafenwa/DeepStack"
+    },
+    "InstallOptions": {
+      "Platforms": [
+        "all",
+        "!macos-arm64"
+      ],
+      "ModuleReleases": [
+        {
+          "ModuleVersion": "1.0",
+          "ServerVersionRange": [
+            "1.0",
+            "2.0.8"
+          ],
+          "ReleaseDate": "2022-11-01",
+          "ReleaseNotes": null,
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.2",
+          "ServerVersionRange": [
+            "2.1",
+            "2.1.6"
+          ],
+          "ReleaseDate": "2023-03-20",
+          "ReleaseNotes": "Updated for CodeProject.AI Server 2.1",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.3",
+          "ServerVersionRange": [
+            "2.1",
+            "2.1.12"
+          ],
+          "ReleaseDate": "2023-05-17",
+          "ReleaseNotes": "Updated module settings",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.4",
+          "ServerVersionRange": [
+            "2.2",
+            "2.2.4"
+          ],
+          "ReleaseDate": "2023-09-09",
+          "ReleaseNotes": "Updated installer",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.5",
+          "ServerVersionRange": [
+            "2.2",
+            "2.2.4"
+          ],
+          "ReleaseDate": "2023-09-16",
+          "ReleaseNotes": "Updates to help Blue Iris users",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.6",
+          "ServerVersionRange": [
+            "2.3.0",
+            "2.3.0"
+          ],
+          "ReleaseDate": "2023-10-01",
+          "ReleaseNotes": "Updated to match new installer SDK.",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.6.1",
+          "ServerVersionRange": [
+            "2.3.1",
+            "2.3.5"
+          ],
+          "ReleaseDate": "2023-10-10",
+          "ReleaseNotes": "Updated to match new installer SDK.",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.6.3",
+          "ServerVersionRange": [
+            "2.3.5",
+            "2.3.5"
+          ],
+          "ReleaseDate": "2023-11-06",
+          "ReleaseNotes": "Installer updates",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.6.4",
+          "ServerVersionRange": [
+            "2.4.0",
+            "2.4.0"
+          ],
+          "ReleaseDate": "2023-12-04",
+          "ReleaseNotes": "Mesh support and a new module Id",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.6.5",
+          "ServerVersionRange": [
+            "2.4.1",
+            "2.4.1"
+          ],
+          "ReleaseDate": "2023-12-06",
+          "ReleaseNotes": "Updated modulesettings schema",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.6.6",
+          "ServerVersionRange": [
+            "2.4.2",
+            "2.4.7"
+          ],
+          "ReleaseDate": "2023-12-09",
+          "ReleaseNotes": "Installer updates",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.7",
+          "ServerVersionRange": [
+            "2.4.2",
+            "2.4.7"
+          ],
+          "ReleaseDate": "2023-12-15",
+          "ReleaseNotes": "Re-enabled CUDA 11 support",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.0",
+          "ServerVersionRange": [
+            "2.5.0-RC1",
+            "2.5.0-RC5"
+          ],
+          "ReleaseDate": "2024-01-06",
+          "ReleaseNotes": "Additions for dynamic explorer UI",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.1",
+          "ServerVersionRange": [
+            "2.5.0-RC1",
+            "2.5.0-RC1"
+          ],
+          "ReleaseDate": "2024-01-13",
+          "ReleaseNotes": "Changes to SDK",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.2",
+          "ServerVersionRange": [
+            "2.5.0-RC6",
+            ""
+          ],
+          "ReleaseDate": "2024-01-16",
+          "ReleaseNotes": "Updated modulesettings schema",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.3",
+          "ServerVersionRange": [
+            "2.5.0-RC6",
+            ""
+          ],
+          "ReleaseDate": "2024-01-18",
+          "ReleaseNotes": "Updated explorer",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.0",
+          "ServerVersionRange": [
+            "2.5.0-RC6",
+            ""
+          ],
+          "ReleaseDate": "2024-01-21",
+          "ReleaseNotes": "Module performance statistics added",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.1",
+          "ServerVersionRange": [
+            "2.5.2",
+            "2.6.0"
+          ],
+          "ReleaseDate": "2024-02-08",
+          "ReleaseNotes": "Support for CodeProject.AI Server 2.5.2",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.2",
+          "ServerVersionRange": [
+            "2.6.1",
+            "2.7.0"
+          ],
+          "ReleaseDate": "2024-04-01",
+          "ReleaseNotes": "Tweaked settings for RPi docker",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.3",
+          "ServerVersionRange": [
+            "2.6.1",
+            "2.7.0"
+          ],
+          "ReleaseDate": "2024-04-01",
+          "ReleaseNotes": "Corrections to PIPs",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.10.0",
+          "ServerVersionRange": [
+            "2.6.5",
+            "2.7.0"
+          ],
+          "ReleaseDate": "2024-04-25",
+          "ReleaseNotes": "Updated for CodeProject.AI Server 2.7",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.11.0",
+          "ServerVersionRange": [
+            "2.8.0",
+            "2.9.3"
+          ],
+          "ReleaseDate": "2024-08-02",
+          "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.12.0",
+          "ServerVersionRange": [
+            "2.8.0",
+            "2.9.3"
+          ],
+          "ReleaseDate": "2024-11-23",
+          "ReleaseNotes": "Improved CUDA 12 support",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.12.1",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-26",
+          "ReleaseNotes": "Support for dual Ubuntu/Debian install",
+          "Importance": null
+        }
+      ]
+    },
+    "Downloads": 0
+  },
+  {
+    "ModuleId": "ObjectDetectionYOLOv5-6.2",
+    "Name": "Object Detection (YOLOv5 6.2)",
+    "Version": "1.10.0",
+    "PublishingInfo": {
+      "Description": "Provides Object Detection using YOLOv5 6.2 targeting CUDA 11.5\u002B, PyTorch \u003C 2.0 for newer GPUs.",
+      "IconURL": null,
+      "Category": "Computer Vision",
+      "Stack": null,
+      "License": "GPL-3.0",
+      "LicenseUrl": "https://opensource.org/licenses/GPL-3.0",
+      "Author": "Matthew Dennis",
+      "Homepage": "https://codeproject.github.io/codeproject.ai",
+      "BasedOn": "Ultralytics YOLOv5",
+      "BasedOnUrl": "https://github.com/ultralytics/yolov5"
+    },
+    "InstallOptions": {
+      "Platforms": [
+        "all",
+        "!raspberrypi",
+        "!jetson"
+      ],
+      "ModuleReleases": [
+        {
+          "ModuleVersion": "1.0",
+          "ServerVersionRange": [
+            "1.0",
+            "2.0.8"
+          ],
+          "ReleaseDate": "2022-03-01",
+          "ReleaseNotes": null,
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.2",
+          "ServerVersionRange": [
+            "2.1.0",
+            "2.1.6"
+          ],
+          "ReleaseDate": "2023-03-20",
+          "ReleaseNotes": "Updated for CodeProject.AI Server 2.1",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.3",
+          "ServerVersionRange": [
+            "2.1.7",
+            "2.1.12"
+          ],
+          "ReleaseDate": "2023-04-29",
+          "ReleaseNotes": "Updated module settings",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.4",
+          "ServerVersionRange": [
+            "2.1",
+            "2.1.12"
+          ],
+          "ReleaseDate": "2023-08-12",
+          "ReleaseNotes": "PyTorch version downgrade",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.5",
+          "ServerVersionRange": [
+            "2.2",
+            "2.2.4"
+          ],
+          "ReleaseDate": "2023-09-09",
+          "ReleaseNotes": "Updated installer",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.6",
+          "ServerVersionRange": [
+            "2.2",
+            "2.2.4"
+          ],
+          "ReleaseDate": "2023-09-16",
+          "ReleaseNotes": "Updates to help Blue Iris users",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.6.1",
+          "ServerVersionRange": [
+            "2.2",
+            "2.2.4"
+          ],
+          "ReleaseDate": "2023-09-17",
+          "ReleaseNotes": "Install for Linux",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.7",
+          "ServerVersionRange": [
+            "2.3.0",
+            "2.3.0"
+          ],
+          "ReleaseDate": "2023-10-01",
+          "ReleaseNotes": "Updated to match new installer SDK.",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.7.1",
+          "ServerVersionRange": [
+            "2.3.1",
+            "2.3.5"
+          ],
+          "ReleaseDate": "2023-10-10",
+          "ReleaseNotes": "Updated to match new installer SDK.",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.7.2",
+          "ServerVersionRange": [
+            "2.3.5",
+            "2.3.5"
+          ],
+          "ReleaseDate": "2023-11-10",
+          "ReleaseNotes": "Removing Raspberry Pi / Jetson support.",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.7.3",
+          "ServerVersionRange": [
+            "2.4.0",
+            "2.4.0"
+          ],
+          "ReleaseDate": "2023-12-03",
+          "ReleaseNotes": "Installer updates for arm64, Mesh support.",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.7.4",
+          "ServerVersionRange": [
+            "2.4.1",
+            "2.4.1"
+          ],
+          "ReleaseDate": "2023-12-06",
+          "ReleaseNotes": "Updated modulesettings schema",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.7.5",
+          "ServerVersionRange": [
+            "2.4.2",
+            "2.4.7"
+          ],
+          "ReleaseDate": "2023-12-09",
+          "ReleaseNotes": "Installer updates",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.8.0",
+          "ServerVersionRange": [
+            "2.5.0-RC1",
+            "2.5.0-RC5"
+          ],
+          "ReleaseDate": "2024-01-06",
+          "ReleaseNotes": "Additions for dynamic explorer UI",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.1",
+          "ServerVersionRange": [
+            "2.5.0-RC1",
+            "2.5.0-RC1"
+          ],
+          "ReleaseDate": "2024-01-13",
+          "ReleaseNotes": "Changes to SDK",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.2",
+          "ServerVersionRange": [
+            "2.5.0-RC6",
+            "2.7.0"
+          ],
+          "ReleaseDate": "2024-01-16",
+          "ReleaseNotes": "Updated modulesettings schema",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.3",
+          "ServerVersionRange": [
+            "2.5.0-RC6",
+            "2.7.0"
+          ],
+          "ReleaseDate": "2024-01-18",
+          "ReleaseNotes": "Correction to module settings",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.0",
+          "ServerVersionRange": [
+            "2.5.0-RC6",
+            "2.7.0"
+          ],
+          "ReleaseDate": "2024-01-21",
+          "ReleaseNotes": "Module performance statistics added",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.1",
+          "ServerVersionRange": [
+            "2.5.2",
+            "2.7.0"
+          ],
+          "ReleaseDate": "2024-02-08",
+          "ReleaseNotes": "Support for CodeProject.AI Server 2.5.2",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.2",
+          "ServerVersionRange": [
+            "2.5.2",
+            "2.7.0"
+          ],
+          "ReleaseDate": "2024-02-26",
+          "ReleaseNotes": "Corrections for backwards compatibility for 2.6.5",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.10.0",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-08-02",
+          "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        }
+      ]
+    },
+    "Downloads": 0
+  },
+  {
+    "ModuleId": "ObjectDetectionYOLOv5Net",
+    "Name": "Object Detection (YOLOv5 .NET)",
+    "Version": "1.13.0",
+    "PublishingInfo": {
+      "Description": "Provides Object Detection using YOLOv5 ONNX models with DirectML. This module is best for those on Windows and Linux without CUDA enabled GPUs",
+      "IconURL": null,
+      "Category": "Computer Vision",
+      "Stack": "C#, ONNX, DirectML, YOLO",
+      "License": "MIT",
+      "LicenseUrl": "https://opensource.org/licenses/MIT",
+      "Author": "Matthew Dennis",
+      "Homepage": "https://codeproject.github.io/codeproject.ai",
+      "BasedOn": "yolov5-net",
+      "BasedOnUrl": "https://github.com/techwingslab/yolov5-net"
+    },
+    "InstallOptions": {
+      "Platforms": [
+        "all",
+        "!windows-arm64"
+      ],
+      "ModuleReleases": [
+        {
+          "ModuleVersion": "1.0",
+          "ServerVersionRange": [
+            "1.0",
+            "2.0.8"
+          ],
+          "ReleaseDate": "2022-06-01",
+          "ReleaseNotes": null,
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.1",
+          "ServerVersionRange": [
+            "2.1.0",
+            "2.1.0"
+          ],
+          "ReleaseDate": "2023-03-20",
+          "ReleaseNotes": "Updated for CodeProject.AI Server 2.1",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.2",
+          "ServerVersionRange": [
+            "2.1.0",
+            "2.1.6"
+          ],
+          "ReleaseDate": "2023-04-09",
+          "ReleaseNotes": "Corrected installer issues",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.3",
+          "ServerVersionRange": [
+            "2.1.0",
+            "2.1.6"
+          ],
+          "ReleaseDate": "2023-04-20",
+          "ReleaseNotes": "Corrected module launch command",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.4",
+          "ServerVersionRange": [
+            "2.1.8",
+            "2.1.8"
+          ],
+          "ReleaseDate": "2023-04-20",
+          "ReleaseNotes": "Minor changes in module setup",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.5",
+          "ServerVersionRange": [
+            "2.1.10",
+            "2.2.4"
+          ],
+          "ReleaseDate": "2023-05-04",
+          "ReleaseNotes": "Updated module settings",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.6",
+          "ServerVersionRange": [
+            "2.1.10",
+            "2.2.4"
+          ],
+          "ReleaseDate": "2023-09-09",
+          "ReleaseNotes": "Installer fix for Linux",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.7",
+          "ServerVersionRange": [
+            "2.3.0",
+            "2.3.0"
+          ],
+          "ReleaseDate": "2023-10-01",
+          "ReleaseNotes": "Updated to match new installer SDK.",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.7.1",
+          "ServerVersionRange": [
+            "2.3.1",
+            "2.3.5"
+          ],
+          "ReleaseDate": "2023-10-10",
+          "ReleaseNotes": "Updated to match new installer SDK.",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.7.2",
+          "ServerVersionRange": [
+            "2.4.0",
+            "2.4.0"
+          ],
+          "ReleaseDate": "2023-12-04",
+          "ReleaseNotes": "Mesh support and a new module Id",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.7.3",
+          "ServerVersionRange": [
+            "2.4.1",
+            "2.4.1"
+          ],
+          "ReleaseDate": "2023-12-06",
+          "ReleaseNotes": "Updated modulesettings schema",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.7.4",
+          "ServerVersionRange": [
+            "2.4.1",
+            "2.4.1"
+          ],
+          "ReleaseDate": "2023-12-07",
+          "ReleaseNotes": "Updated modulesettings schema",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.7.5",
+          "ServerVersionRange": [
+            "2.4.2",
+            "2.4.7"
+          ],
+          "ReleaseDate": "2023-12-09",
+          "ReleaseNotes": "Installer updates",
+          "Importance": "Minor"
+        },
+        {
+          "ModuleVersion": "1.7.6",
+          "ServerVersionRange": [
+            "2.4.2",
+            "2.4.7"
+          ],
+          "ReleaseDate": "2023-12-12",
+          "ReleaseNotes": "Bug fixes",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.7.7",
+          "ServerVersionRange": [
+            "2.4.2",
+            "2.4.7"
+          ],
+          "ReleaseDate": "2023-12-21",
+          "ReleaseNotes": "Installer fixes for macOS and Linux",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.0",
+          "ServerVersionRange": [
+            "2.5.0-RC1",
+            "2.5.0-RC5"
+          ],
+          "ReleaseDate": "2024-01-06",
+          "ReleaseNotes": "Additions for dynamic explorer UI",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.1",
+          "ServerVersionRange": [
+            "2.5.0-RC1",
+            "2.5.0-RC1"
+          ],
+          "ReleaseDate": "2024-01-13",
+          "ReleaseNotes": "Changes to SDK",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.2",
+          "ServerVersionRange": [
+            "2.5.0-RC6",
+            ""
+          ],
+          "ReleaseDate": "2024-01-16",
+          "ReleaseNotes": "Updated modulesettings schema",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.8.3",
+          "ServerVersionRange": [
+            "2.5.0-RC6",
+            ""
+          ],
+          "ReleaseDate": "2024-01-18",
+          "ReleaseNotes": "Updated explorer",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.0",
+          "ServerVersionRange": [
+            "2.5.0-RC6",
+            ""
+          ],
+          "ReleaseDate": "2024-01-21",
+          "ReleaseNotes": "Module performance statistics added",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.1",
+          "ServerVersionRange": [
+            "2.5.0-RC6",
+            ""
+          ],
+          "ReleaseDate": "2024-01-23",
+          "ReleaseNotes": "Adjusted timeouts to correct \u0027Lost contact\u0027 issue",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.3",
+          "ServerVersionRange": [
+            "2.5.2",
+            "2.6.0"
+          ],
+          "ReleaseDate": "2024-02-08",
+          "ReleaseNotes": "Support for CodeProject.AI Server 2.5.2",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.10.0",
+          "ServerVersionRange": [
+            "2.6.1",
+            "2.6.2"
+          ],
+          "ReleaseDate": "2024-04-01",
+          "ReleaseNotes": "Updated for server 2.6",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.10.1",
+          "ServerVersionRange": [
+            "2.6.3",
+            "2.7.0"
+          ],
+          "ReleaseDate": "2024-04-05",
+          "ReleaseNotes": "Corrected reported Inference device",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.10.2",
+          "ServerVersionRange": [
+            "2.6.5",
+            "2.7.0"
+          ],
+          "ReleaseDate": "2024-02-26",
+          "ReleaseNotes": "Corrections for backwards compatibility for 2.6.5",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.11.0",
+          "ServerVersionRange": [
+            "2.8.0",
+            "2.9.0"
+          ],
+          "ReleaseDate": "2024-08-02",
+          "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.12.0",
+          "ServerVersionRange": [
+            "2.9.1",
+            "2.9.1"
+          ],
+          "ReleaseDate": "2024-11-17",
+          "ReleaseNotes": "Updated to .NET 9",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.13.0",
+          "ServerVersionRange": [
+            "2.9.2",
+            ""
+          ],
+          "ReleaseDate": "2024-11-24",
+          "ReleaseNotes": "Updated to reflect updated CodeProject.AI SDK",
+          "Importance": null
+        }
+      ]
+    },
+    "Downloads": 0
+  },
+  {
     "ModuleId": "ObjectDetectionYOLOv8",
     "Name": "Object Detection (YOLOv8)",
-    "Version": "1.6.0",
+    "Version": "1.6.2",
     "PublishingInfo": {
       "Description": "Provides Object Detection in Python\u003E=3.8 using YOLOv8. Great for newer NVIDIA GPUs",
       "IconURL": null,
@@ -2270,10 +3099,30 @@
           "ModuleVersion": "1.6.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.6.1",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-26",
+          "ReleaseNotes": "Support for dual Ubuntu/Debian install",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.6.2",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-12-03",
+          "ReleaseNotes": "Corrections for Linux, non-GPU install",
           "Importance": null
         }
       ]
@@ -2283,7 +3132,7 @@
   {
     "ModuleId": "OCR",
     "Name": "Optical Character Recognition",
-    "Version": "2.2.1",
+    "Version": "2.2.3",
     "PublishingInfo": {
       "Description": "Provides OCR support using the PaddleOCR toolkit",
       "IconURL": "",
@@ -2496,7 +3345,7 @@
           "ModuleVersion": "2.2.0",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
@@ -2506,10 +3355,30 @@
           "ModuleVersion": "2.2.1",
           "ServerVersionRange": [
             "2.8.0",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-11-23",
           "ReleaseNotes": "Improved cuDNN check",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.2.2",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-26",
+          "ReleaseNotes": "Support for dual Ubuntu/Debian install",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.2.3",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-11-29",
+          "ReleaseNotes": "Corrections for CUDA 11.8",
           "Importance": null
         }
       ]
@@ -2519,7 +3388,7 @@
   {
     "ModuleId": "PortraitFilter",
     "Name": "Portrait Filter",
-    "Version": "2.2.0",
+    "Version": "2.3.0",
     "PublishingInfo": {
       "Description": "Provides a depth-of-field (bokeh) effect on images. Great for selfies.",
       "IconURL": "",
@@ -2721,10 +3590,20 @@
           "ModuleVersion": "2.2.0",
           "ServerVersionRange": [
             "2.9.1",
-            ""
+            "2.9.1"
           ],
           "ReleaseDate": "2024-11-17",
           "ReleaseNotes": "Updated to .NET 9",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.3.0",
+          "ServerVersionRange": [
+            "2.9.2",
+            ""
+          ],
+          "ReleaseDate": "2024-11-24",
+          "ReleaseNotes": "Updated to reflect updated CodeProject.AI SDK",
           "Importance": null
         }
       ]
@@ -2940,7 +3819,7 @@
   {
     "ModuleId": "SentimentAnalysis",
     "Name": "Sentiment Analysis",
-    "Version": "2.2.0",
+    "Version": "2.3.0",
     "PublishingInfo": {
       "Description": "Provides an analysis of the sentiment of a piece of text. Positive or negative?",
       "IconURL": "",
@@ -3143,10 +4022,20 @@
           "ModuleVersion": "2.2.0",
           "ServerVersionRange": [
             "2.9.1",
-            ""
+            "2.9.1"
           ],
           "ReleaseDate": "2024-11-17",
           "ReleaseNotes": "Updated to .NET 9",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.3.0",
+          "ServerVersionRange": [
+            "2.9.2",
+            ""
+          ],
+          "ReleaseDate": "2024-11-24",
+          "ReleaseNotes": "Updated to reflect updated CodeProject.AI SDK",
           "Importance": null
         }
       ]
@@ -3926,525 +4815,6 @@
     "Downloads": 0
   },
   {
-    "ModuleId": "ObjectDetectionYOLOv5Net",
-    "Name": "Object Detection (YOLOv5 .NET)",
-    "Version": "1.12.0",
-    "PublishingInfo": {
-      "Description": "Provides Object Detection using YOLOv5 ONNX models with DirectML. This module is best for those on Windows and Linux without CUDA enabled GPUs",
-      "IconURL": null,
-      "Category": "Computer Vision",
-      "Stack": "C#, ONNX, DirectML, YOLO",
-      "License": "MIT",
-      "LicenseUrl": "https://opensource.org/licenses/MIT",
-      "Author": "Matthew Dennis",
-      "Homepage": "https://codeproject.github.io/codeproject.ai",
-      "BasedOn": "yolov5-net",
-      "BasedOnUrl": "https://github.com/techwingslab/yolov5-net"
-    },
-    "InstallOptions": {
-      "Platforms": [
-        "all",
-        "!windows-arm64"
-      ],
-      "ModuleReleases": [
-        {
-          "ModuleVersion": "1.7.2",
-          "ServerVersionRange": [
-            "2.4.0",
-            "2.4.0"
-          ],
-          "ReleaseDate": "2023-12-04",
-          "ReleaseNotes": "Mesh support and a new module Id",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.7.3",
-          "ServerVersionRange": [
-            "2.4.1",
-            "2.4.1"
-          ],
-          "ReleaseDate": "2023-12-06",
-          "ReleaseNotes": "Updated modulesettings schema",
-          "Importance": "Minor"
-        },
-        {
-          "ModuleVersion": "1.7.4",
-          "ServerVersionRange": [
-            "2.4.1",
-            "2.4.1"
-          ],
-          "ReleaseDate": "2023-12-07",
-          "ReleaseNotes": "Updated modulesettings schema",
-          "Importance": "Minor"
-        },
-        {
-          "ModuleVersion": "1.7.5",
-          "ServerVersionRange": [
-            "2.4.2",
-            "2.4.7"
-          ],
-          "ReleaseDate": "2023-12-09",
-          "ReleaseNotes": "Installer updates",
-          "Importance": "Minor"
-        },
-        {
-          "ModuleVersion": "1.7.6",
-          "ServerVersionRange": [
-            "2.4.2",
-            "2.4.7"
-          ],
-          "ReleaseDate": "2023-12-12",
-          "ReleaseNotes": "Bug fixes",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.7.7",
-          "ServerVersionRange": [
-            "2.4.2",
-            "2.4.7"
-          ],
-          "ReleaseDate": "2023-12-21",
-          "ReleaseNotes": "Installer fixes for macOS and Linux",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.0",
-          "ServerVersionRange": [
-            "2.5.0-RC1",
-            "2.5.0-RC5"
-          ],
-          "ReleaseDate": "2024-01-06",
-          "ReleaseNotes": "Additions for dynamic explorer UI",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.1",
-          "ServerVersionRange": [
-            "2.5.0-RC1",
-            "2.5.0-RC1"
-          ],
-          "ReleaseDate": "2024-01-13",
-          "ReleaseNotes": "Changes to SDK",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.2",
-          "ServerVersionRange": [
-            "2.5.0-RC6",
-            ""
-          ],
-          "ReleaseDate": "2024-01-16",
-          "ReleaseNotes": "Updated modulesettings schema",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.3",
-          "ServerVersionRange": [
-            "2.5.0-RC6",
-            ""
-          ],
-          "ReleaseDate": "2024-01-18",
-          "ReleaseNotes": "Updated explorer",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.9.0",
-          "ServerVersionRange": [
-            "2.5.0-RC6",
-            ""
-          ],
-          "ReleaseDate": "2024-01-21",
-          "ReleaseNotes": "Module performance statistics added",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.9.1",
-          "ServerVersionRange": [
-            "2.5.0-RC6",
-            ""
-          ],
-          "ReleaseDate": "2024-01-23",
-          "ReleaseNotes": "Adjusted timeouts to correct \u0027Lost contact\u0027 issue",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.9.3",
-          "ServerVersionRange": [
-            "2.5.2",
-            "2.6.0"
-          ],
-          "ReleaseDate": "2024-02-08",
-          "ReleaseNotes": "Support for CodeProject.AI Server 2.5.2",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.10.0",
-          "ServerVersionRange": [
-            "2.6.1",
-            "2.6.2"
-          ],
-          "ReleaseDate": "2024-04-01",
-          "ReleaseNotes": "Updated for server 2.6",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.10.1",
-          "ServerVersionRange": [
-            "2.6.3",
-            "2.7.0"
-          ],
-          "ReleaseDate": "2024-04-05",
-          "ReleaseNotes": "Corrected reported Inference device",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.10.2",
-          "ServerVersionRange": [
-            "2.6.5",
-            "2.7.0"
-          ],
-          "ReleaseDate": "2024-02-26",
-          "ReleaseNotes": "Corrections for backwards compatibility for 2.6.5",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.11.0",
-          "ServerVersionRange": [
-            "2.8.0",
-            "2.9.0"
-          ],
-          "ReleaseDate": "2024-08-02",
-          "ReleaseNotes": "Updated for server 2.8",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.12.0",
-          "ServerVersionRange": [
-            "2.9.1",
-            ""
-          ],
-          "ReleaseDate": "2024-11-17",
-          "ReleaseNotes": "Updated to .NET 9",
-          "Importance": null
-        }
-      ]
-    },
-    "Downloads": 0
-  },
-  {
-    "ModuleId": "ObjectDetectionYOLOv5-6.2",
-    "Name": "Object Detection (YOLOv5 6.2)",
-    "Version": "1.10.0",
-    "PublishingInfo": {
-      "Description": "Provides Object Detection using YOLOv5 6.2 targeting CUDA 11.5\u002B, PyTorch \u003C 2.0 for newer GPUs.",
-      "IconURL": null,
-      "Category": "Computer Vision",
-      "Stack": null,
-      "License": "GPL-3.0",
-      "LicenseUrl": "https://opensource.org/licenses/GPL-3.0",
-      "Author": "Matthew Dennis",
-      "Homepage": "https://codeproject.github.io/codeproject.ai",
-      "BasedOn": "Ultralytics YOLOv5",
-      "BasedOnUrl": "https://github.com/ultralytics/yolov5"
-    },
-    "InstallOptions": {
-      "Platforms": [
-        "all",
-        "!raspberrypi",
-        "!jetson"
-      ],
-      "ModuleReleases": [
-        {
-          "ModuleVersion": "1.7.3",
-          "ServerVersionRange": [
-            "2.4.0",
-            "2.4.0"
-          ],
-          "ReleaseDate": "2023-12-03",
-          "ReleaseNotes": "Installer updates for arm64, Mesh support.",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.7.4",
-          "ServerVersionRange": [
-            "2.4.1",
-            "2.4.1"
-          ],
-          "ReleaseDate": "2023-12-06",
-          "ReleaseNotes": "Updated modulesettings schema",
-          "Importance": "Minor"
-        },
-        {
-          "ModuleVersion": "1.7.5",
-          "ServerVersionRange": [
-            "2.4.2",
-            "2.4.7"
-          ],
-          "ReleaseDate": "2023-12-09",
-          "ReleaseNotes": "Installer updates",
-          "Importance": "Minor"
-        },
-        {
-          "ModuleVersion": "1.8.0",
-          "ServerVersionRange": [
-            "2.5.0-RC1",
-            "2.5.0-RC5"
-          ],
-          "ReleaseDate": "2024-01-06",
-          "ReleaseNotes": "Additions for dynamic explorer UI",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.1",
-          "ServerVersionRange": [
-            "2.5.0-RC1",
-            "2.5.0-RC1"
-          ],
-          "ReleaseDate": "2024-01-13",
-          "ReleaseNotes": "Changes to SDK",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.2",
-          "ServerVersionRange": [
-            "2.5.0-RC6",
-            "2.7.0"
-          ],
-          "ReleaseDate": "2024-01-16",
-          "ReleaseNotes": "Updated modulesettings schema",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.3",
-          "ServerVersionRange": [
-            "2.5.0-RC6",
-            "2.7.0"
-          ],
-          "ReleaseDate": "2024-01-18",
-          "ReleaseNotes": "Correction to module settings",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.9.0",
-          "ServerVersionRange": [
-            "2.5.0-RC6",
-            "2.7.0"
-          ],
-          "ReleaseDate": "2024-01-21",
-          "ReleaseNotes": "Module performance statistics added",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.9.1",
-          "ServerVersionRange": [
-            "2.5.2",
-            "2.7.0"
-          ],
-          "ReleaseDate": "2024-02-08",
-          "ReleaseNotes": "Support for CodeProject.AI Server 2.5.2",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.9.2",
-          "ServerVersionRange": [
-            "2.5.2",
-            "2.7.0"
-          ],
-          "ReleaseDate": "2024-02-26",
-          "ReleaseNotes": "Corrections for backwards compatibility for 2.6.5",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.10.0",
-          "ServerVersionRange": [
-            "2.8.0",
-            ""
-          ],
-          "ReleaseDate": "2024-08-02",
-          "ReleaseNotes": "Updated for server 2.8",
-          "Importance": null
-        }
-      ]
-    },
-    "Downloads": 0
-  },
-  {
-    "ModuleId": "ObjectDetectionYOLOv5-3.1",
-    "Name": "Object Detection (YOLOv5 3.1)",
-    "Version": "1.12.0",
-    "PublishingInfo": {
-      "Description": "Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.",
-      "IconURL": null,
-      "Category": "Computer Vision",
-      "Stack": "Python, PyTorch, YOLO",
-      "License": "GPL-3.0",
-      "LicenseUrl": "https://opensource.org/licenses/GPL-3.0",
-      "Author": "Chris Maunder, Matthew Dennis",
-      "Homepage": "https://github.com/codeproject/CodeProject.AI-Server/",
-      "BasedOn": "Deepstack",
-      "BasedOnUrl": "https://github.com/johnolafenwa/DeepStack"
-    },
-    "InstallOptions": {
-      "Platforms": [
-        "all",
-        "!macos-arm64"
-      ],
-      "ModuleReleases": [
-        {
-          "ModuleVersion": "1.6.4",
-          "ServerVersionRange": [
-            "2.4.0",
-            "2.4.0"
-          ],
-          "ReleaseDate": "2023-12-04",
-          "ReleaseNotes": "Mesh support and a new module Id",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.6.5",
-          "ServerVersionRange": [
-            "2.4.1",
-            "2.4.1"
-          ],
-          "ReleaseDate": "2023-12-06",
-          "ReleaseNotes": "Updated modulesettings schema",
-          "Importance": "Minor"
-        },
-        {
-          "ModuleVersion": "1.6.6",
-          "ServerVersionRange": [
-            "2.4.2",
-            "2.4.7"
-          ],
-          "ReleaseDate": "2023-12-09",
-          "ReleaseNotes": "Installer updates",
-          "Importance": "Minor"
-        },
-        {
-          "ModuleVersion": "1.7",
-          "ServerVersionRange": [
-            "2.4.2",
-            "2.4.7"
-          ],
-          "ReleaseDate": "2023-12-15",
-          "ReleaseNotes": "Re-enabled CUDA 11 support",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.0",
-          "ServerVersionRange": [
-            "2.5.0-RC1",
-            "2.5.0-RC5"
-          ],
-          "ReleaseDate": "2024-01-06",
-          "ReleaseNotes": "Additions for dynamic explorer UI",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.1",
-          "ServerVersionRange": [
-            "2.5.0-RC1",
-            "2.5.0-RC1"
-          ],
-          "ReleaseDate": "2024-01-13",
-          "ReleaseNotes": "Changes to SDK",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.2",
-          "ServerVersionRange": [
-            "2.5.0-RC6",
-            ""
-          ],
-          "ReleaseDate": "2024-01-16",
-          "ReleaseNotes": "Updated modulesettings schema",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.8.3",
-          "ServerVersionRange": [
-            "2.5.0-RC6",
-            ""
-          ],
-          "ReleaseDate": "2024-01-18",
-          "ReleaseNotes": "Updated explorer",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.9.0",
-          "ServerVersionRange": [
-            "2.5.0-RC6",
-            ""
-          ],
-          "ReleaseDate": "2024-01-21",
-          "ReleaseNotes": "Module performance statistics added",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.9.1",
-          "ServerVersionRange": [
-            "2.5.2",
-            "2.6.0"
-          ],
-          "ReleaseDate": "2024-02-08",
-          "ReleaseNotes": "Support for CodeProject.AI Server 2.5.2",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.9.2",
-          "ServerVersionRange": [
-            "2.6.1",
-            "2.7.0"
-          ],
-          "ReleaseDate": "2024-04-01",
-          "ReleaseNotes": "Tweaked settings for RPi docker",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.9.3",
-          "ServerVersionRange": [
-            "2.6.1",
-            "2.7.0"
-          ],
-          "ReleaseDate": "2024-04-01",
-          "ReleaseNotes": "Corrections to PIPs",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.10.0",
-          "ServerVersionRange": [
-            "2.6.5",
-            "2.7.0"
-          ],
-          "ReleaseDate": "2024-04-25",
-          "ReleaseNotes": "Updated for CodeProject.AI Server 2.7",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.11.0",
-          "ServerVersionRange": [
-            "2.8.0",
-            ""
-          ],
-          "ReleaseDate": "2024-08-02",
-          "ReleaseNotes": "Updated for server 2.8",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.12.0",
-          "ServerVersionRange": [
-            "2.8.0",
-            ""
-          ],
-          "ReleaseDate": "2024-11-23",
-          "ReleaseNotes": "Improved CUDA 12 support",
-          "Importance": null
-        }
-      ]
-    },
-    "Downloads": 0
-  },
-  {
     "ModuleId": "TrainingObjectDetectionYOLOv5",
     "Name": "Training for YoloV5 6.2",
     "Version": "1.7.0",
@@ -4469,6 +4839,76 @@
         "!jetson"
       ],
       "ModuleReleases": [
+        {
+          "ModuleVersion": "1.0",
+          "ServerVersionRange": [
+            "2.1.10",
+            "2.1.10"
+          ],
+          "ReleaseDate": "2022-08-02",
+          "ReleaseNotes": null,
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.1",
+          "ServerVersionRange": [
+            "2.1.11",
+            "2.1.12"
+          ],
+          "ReleaseDate": "2023-08-12",
+          "ReleaseNotes": "Added \u0027patience\u0027, \u0027workers\u0027 as parameters",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.2",
+          "ServerVersionRange": [
+            "2.1.11",
+            "2.1.12"
+          ],
+          "ReleaseDate": "2023-08-17",
+          "ReleaseNotes": "Bug fix",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.3",
+          "ServerVersionRange": [
+            "2.2",
+            "2.2.4"
+          ],
+          "ReleaseDate": "2023-09-09",
+          "ReleaseNotes": "Updated installer, user-provided datasets supported",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.4",
+          "ServerVersionRange": [
+            "2.3.0",
+            "2.3.0"
+          ],
+          "ReleaseDate": "2023-10-01",
+          "ReleaseNotes": "Updated to match new installer SDK.",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.4.1",
+          "ServerVersionRange": [
+            "2.3.1",
+            "2.3.5"
+          ],
+          "ReleaseDate": "2023-10-10",
+          "ReleaseNotes": "Updated to match new installer SDK.",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.4.2",
+          "ServerVersionRange": [
+            "2.3.5",
+            "2.3.5"
+          ],
+          "ReleaseDate": "2023-11-06",
+          "ReleaseNotes": "Installer updates",
+          "Importance": "Minor"
+        },
         {
           "ModuleVersion": "1.4.3",
           "ServerVersionRange": [
@@ -4622,459 +5062,11 @@
       ]
     },
     "Downloads": 0
-  },
-  {
-    "ModuleId": "ObjectDetectionNet",
-    "Name": "Object Detection (YOLOv5 .NET)",
-    "Version": "1.12.0",
-    "PublishingInfo": {
-      "Description": "Provides Object Detection using YOLOv5 ONNX models with DirectML. This module is best for those on Windows and Linux without CUDA enabled GPUs",
-      "IconURL": null,
-      "Category": "Computer Vision",
-      "Stack": "C#, ONNX, DirectML, YOLO",
-      "License": "MIT",
-      "LicenseUrl": "https://opensource.org/licenses/MIT",
-      "Author": "Matthew Dennis",
-      "Homepage": "https://codeproject.github.io/codeproject.ai",
-      "BasedOn": "yolov5-net",
-      "BasedOnUrl": "https://github.com/techwingslab/yolov5-net"
-    },
-    "InstallOptions": {
-      "Platforms": [
-        "all",
-        "!windows-arm64"
-      ],
-      "ModuleReleases": [
-        {
-          "ModuleVersion": "1.0",
-          "ServerVersionRange": [
-            "1.0",
-            "2.0.8"
-          ],
-          "ReleaseDate": "2022-06-01",
-          "ReleaseNotes": null,
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.1",
-          "ServerVersionRange": [
-            "2.1.0",
-            "2.1.0"
-          ],
-          "ReleaseDate": "2023-03-20",
-          "ReleaseNotes": "Updated for CodeProject.AI Server 2.1",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.2",
-          "ServerVersionRange": [
-            "2.1.0",
-            "2.1.6"
-          ],
-          "ReleaseDate": "2023-04-09",
-          "ReleaseNotes": "Corrected installer issues",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.3",
-          "ServerVersionRange": [
-            "2.1.0",
-            "2.1.6"
-          ],
-          "ReleaseDate": "2023-04-20",
-          "ReleaseNotes": "Corrected module launch command",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.4",
-          "ServerVersionRange": [
-            "2.1.8",
-            "2.1.8"
-          ],
-          "ReleaseDate": "2023-04-20",
-          "ReleaseNotes": "Minor changes in module setup",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.5",
-          "ServerVersionRange": [
-            "2.1.10",
-            "2.2.4"
-          ],
-          "ReleaseDate": "2023-05-04",
-          "ReleaseNotes": "Updated module settings",
-          "Importance": "Minor"
-        },
-        {
-          "ModuleVersion": "1.6",
-          "ServerVersionRange": [
-            "2.1.10",
-            "2.2.4"
-          ],
-          "ReleaseDate": "2023-09-09",
-          "ReleaseNotes": "Installer fix for Linux",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.7",
-          "ServerVersionRange": [
-            "2.3.0",
-            "2.3.0"
-          ],
-          "ReleaseDate": "2023-10-01",
-          "ReleaseNotes": "Updated to match new installer SDK.",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.7.1",
-          "ServerVersionRange": [
-            "2.3.1",
-            "2.3.5"
-          ],
-          "ReleaseDate": "2023-10-10",
-          "ReleaseNotes": "Updated to match new installer SDK.",
-          "Importance": null
-        }
-      ]
-    },
-    "Downloads": 0
-  },
-  {
-    "ModuleId": "ObjectDetectionYolo",
-    "Name": "Object Detection (YOLOv5 6.2)",
-    "Version": "1.10.0",
-    "PublishingInfo": {
-      "Description": "Provides Object Detection using YOLOv5 6.2 targeting CUDA 11.5\u002B, PyTorch \u003C 2.0 for newer GPUs.",
-      "IconURL": null,
-      "Category": "Computer Vision",
-      "Stack": null,
-      "License": "GPL-3.0",
-      "LicenseUrl": "https://opensource.org/licenses/GPL-3.0",
-      "Author": "Matthew Dennis",
-      "Homepage": "https://codeproject.github.io/codeproject.ai",
-      "BasedOn": "Ultralytics YOLOv5",
-      "BasedOnUrl": "https://github.com/ultralytics/yolov5"
-    },
-    "InstallOptions": {
-      "Platforms": [
-        "all",
-        "!raspberrypi",
-        "!jetson"
-      ],
-      "ModuleReleases": [
-        {
-          "ModuleVersion": "1.0",
-          "ServerVersionRange": [
-            "1.0",
-            "2.0.8"
-          ],
-          "ReleaseDate": "2022-03-01",
-          "ReleaseNotes": null,
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.2",
-          "ServerVersionRange": [
-            "2.1.0",
-            "2.1.6"
-          ],
-          "ReleaseDate": "2023-03-20",
-          "ReleaseNotes": "Updated for CodeProject.AI Server 2.1",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.3",
-          "ServerVersionRange": [
-            "2.1.7",
-            "2.1.12"
-          ],
-          "ReleaseDate": "2023-04-29",
-          "ReleaseNotes": "Updated module settings",
-          "Importance": "Minor"
-        },
-        {
-          "ModuleVersion": "1.4",
-          "ServerVersionRange": [
-            "2.1",
-            "2.1.12"
-          ],
-          "ReleaseDate": "2023-08-12",
-          "ReleaseNotes": "PyTorch version downgrade",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.5",
-          "ServerVersionRange": [
-            "2.2",
-            "2.2.4"
-          ],
-          "ReleaseDate": "2023-09-09",
-          "ReleaseNotes": "Updated installer",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.6",
-          "ServerVersionRange": [
-            "2.2",
-            "2.2.4"
-          ],
-          "ReleaseDate": "2023-09-16",
-          "ReleaseNotes": "Updates to help Blue Iris users",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.6.1",
-          "ServerVersionRange": [
-            "2.2",
-            "2.2.4"
-          ],
-          "ReleaseDate": "2023-09-17",
-          "ReleaseNotes": "Install for Linux",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.7",
-          "ServerVersionRange": [
-            "2.3.0",
-            "2.3.0"
-          ],
-          "ReleaseDate": "2023-10-01",
-          "ReleaseNotes": "Updated to match new installer SDK.",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.7.1",
-          "ServerVersionRange": [
-            "2.3.1",
-            "2.3.5"
-          ],
-          "ReleaseDate": "2023-10-10",
-          "ReleaseNotes": "Updated to match new installer SDK.",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.7.2",
-          "ServerVersionRange": [
-            "2.3.5",
-            "2.3.5"
-          ],
-          "ReleaseDate": "2023-11-10",
-          "ReleaseNotes": "Removing Raspberry Pi / Jetson support.",
-          "Importance": "Minor"
-        }
-      ]
-    },
-    "Downloads": 0
-  },
-  {
-    "ModuleId": "Yolov5-3.1",
-    "Name": "Object Detection (YOLOv5 3.1)",
-    "Version": "1.12.0",
-    "PublishingInfo": {
-      "Description": "Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.",
-      "IconURL": null,
-      "Category": "Computer Vision",
-      "Stack": "Python, PyTorch, YOLO",
-      "License": "GPL-3.0",
-      "LicenseUrl": "https://opensource.org/licenses/GPL-3.0",
-      "Author": "Chris Maunder, Matthew Dennis",
-      "Homepage": "https://github.com/codeproject/CodeProject.AI-Server/",
-      "BasedOn": "Deepstack",
-      "BasedOnUrl": "https://github.com/johnolafenwa/DeepStack"
-    },
-    "InstallOptions": {
-      "Platforms": [
-        "all",
-        "!macos-arm64"
-      ],
-      "ModuleReleases": [
-        {
-          "ModuleVersion": "1.0",
-          "ServerVersionRange": [
-            "1.0",
-            "2.0.8"
-          ],
-          "ReleaseDate": "2022-11-01",
-          "ReleaseNotes": null,
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.2",
-          "ServerVersionRange": [
-            "2.1",
-            "2.1.6"
-          ],
-          "ReleaseDate": "2023-03-20",
-          "ReleaseNotes": "Updated for CodeProject.AI Server 2.1",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.3",
-          "ServerVersionRange": [
-            "2.1",
-            "2.1.12"
-          ],
-          "ReleaseDate": "2023-05-17",
-          "ReleaseNotes": "Updated module settings",
-          "Importance": "Minor"
-        },
-        {
-          "ModuleVersion": "1.4",
-          "ServerVersionRange": [
-            "2.2",
-            "2.2.4"
-          ],
-          "ReleaseDate": "2023-09-09",
-          "ReleaseNotes": "Updated installer",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.5",
-          "ServerVersionRange": [
-            "2.2",
-            "2.2.4"
-          ],
-          "ReleaseDate": "2023-09-16",
-          "ReleaseNotes": "Updates to help Blue Iris users",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.6",
-          "ServerVersionRange": [
-            "2.3.0",
-            "2.3.0"
-          ],
-          "ReleaseDate": "2023-10-01",
-          "ReleaseNotes": "Updated to match new installer SDK.",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.6.1",
-          "ServerVersionRange": [
-            "2.3.1",
-            "2.3.5"
-          ],
-          "ReleaseDate": "2023-10-10",
-          "ReleaseNotes": "Updated to match new installer SDK.",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.6.3",
-          "ServerVersionRange": [
-            "2.3.5",
-            "2.3.5"
-          ],
-          "ReleaseDate": "2023-11-06",
-          "ReleaseNotes": "Installer updates",
-          "Importance": "Minor"
-        }
-      ]
-    },
-    "Downloads": 0
-  },
-  {
-    "ModuleId": "TrainingYoloV5",
-    "Name": "Training for YoloV5 6.2",
-    "Version": "1.7.0",
-    "PublishingInfo": {
-      "Description": "Train custom models for YOLOv5 v6.2 with support for CPUs, CUDA enabled GPUs, and Apple Silicon.",
-      "IconURL": "",
-      "Category": "Training",
-      "Stack": "Python, PyTorch, YOLO",
-      "License": "GPL-3.0",
-      "LicenseUrl": "https://opensource.org/licenses/GPL-3.0",
-      "Author": "Matthew Dennis",
-      "Homepage": "https://github.com/codeproject/CodeProject.AI-Server/",
-      "BasedOn": "Ultralytics YOLOv5",
-      "BasedOnUrl": "https://github.com/ultralytics/yolov5"
-    },
-    "InstallOptions": {
-      "Platforms": [
-        "all",
-        "!raspberrypi",
-        "!orangepi",
-        "!radxarock",
-        "!jetson"
-      ],
-      "ModuleReleases": [
-        {
-          "ModuleVersion": "1.0",
-          "ServerVersionRange": [
-            "2.1.10",
-            "2.1.10"
-          ],
-          "ReleaseDate": "2022-08-02",
-          "ReleaseNotes": null,
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.1",
-          "ServerVersionRange": [
-            "2.1.11",
-            "2.1.12"
-          ],
-          "ReleaseDate": "2023-08-12",
-          "ReleaseNotes": "Added \u0027patience\u0027, \u0027workers\u0027 as parameters",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.2",
-          "ServerVersionRange": [
-            "2.1.11",
-            "2.1.12"
-          ],
-          "ReleaseDate": "2023-08-17",
-          "ReleaseNotes": "Bug fix",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.3",
-          "ServerVersionRange": [
-            "2.2",
-            "2.2.4"
-          ],
-          "ReleaseDate": "2023-09-09",
-          "ReleaseNotes": "Updated installer, user-provided datasets supported",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.4",
-          "ServerVersionRange": [
-            "2.3.0",
-            "2.3.0"
-          ],
-          "ReleaseDate": "2023-10-01",
-          "ReleaseNotes": "Updated to match new installer SDK.",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.4.1",
-          "ServerVersionRange": [
-            "2.3.1",
-            "2.3.5"
-          ],
-          "ReleaseDate": "2023-10-10",
-          "ReleaseNotes": "Updated to match new installer SDK.",
-          "Importance": null
-        },
-        {
-          "ModuleVersion": "1.4.2",
-          "ServerVersionRange": [
-            "2.3.5",
-            "2.3.5"
-          ],
-          "ReleaseDate": "2023-11-06",
-          "ReleaseNotes": "Installer updates",
-          "Importance": "Minor"
-        }
-      ]
-    },
-    "Downloads": 0
   }
 ]
 /*
 
-Supporting CodeProject.AI Server 2.9.2.
+Supporting CodeProject.AI Server 2.9.4.
 
 
 ### Computer Audition
@@ -5090,7 +5082,7 @@ Supporting CodeProject.AI Server 2.9.2.
 
  - **License Plate Reader**<br>
    Detects and readers single-line and multi-line license plates using YOLO object detection and the PaddleOCR toolkit<br>
-   v3.3.1 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
+   v3.3.3 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
    By Mike Lud
 <br>
  - **License Plate Reader (RKNN)**<br>
@@ -5105,12 +5097,12 @@ Supporting CodeProject.AI Server 2.9.2.
 <br>
  - **Object Detection (YOLOv5 .NET)**<br>
    Provides Object Detection using YOLOv5 ONNX models with DirectML. This module is best for those on Windows and Linux without CUDA enabled GPUs<br>
-   v1.12.0 &nbsp; All Platforms except Windows-arm64 &nbsp; C#, ONNX, DirectML, YOLO<br>
+   v1.13.0 &nbsp; All Platforms except Windows-arm64 &nbsp; C#, ONNX, DirectML, YOLO<br>
    Project by [Matthew Dennis](https://codeproject.github.io/codeproject.ai), based on [yolov5-net](https://github.com/techwingslab/yolov5-net).
 <br>
  - **Object Detection (YOLOv5 3.1)**<br>
    Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.<br>
-   v1.12.0 &nbsp; All Platforms except macOS &nbsp; Python, PyTorch, YOLO<br>
+   v1.12.1 &nbsp; All Platforms except macOS &nbsp; Python, PyTorch, YOLO<br>
    Project by [Chris Maunder, Matthew Dennis](https://github.com/codeproject/CodeProject.AI-Server/), based on [Deepstack](https://github.com/johnolafenwa/DeepStack).
 <br>
  - **Object Detection (YOLOv5 6.2)**<br>
@@ -5125,12 +5117,12 @@ Supporting CodeProject.AI Server 2.9.2.
 <br>
  - **Object Detection (YOLOv8)**<br>
    Provides Object Detection in Python>=3.8 using YOLOv8. Great for newer NVIDIA GPUs<br>
-   v1.6.0 &nbsp; All Platforms &nbsp; Python, PyTorch, YOLO<br>
+   v1.6.2 &nbsp; All Platforms &nbsp; Python, PyTorch, YOLO<br>
    Project by [Chris Maunder](https://github.com/codeproject/CodeProject.AI-Server/), based on [ultralytics](https://github.com/ultralytics/ultralytics).
 <br>
  - **Optical Character Recognition**<br>
    Provides OCR support using the PaddleOCR toolkit<br>
-   v2.2.1 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
+   v2.2.3 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
    By Mike Lud
 <br>
  - **Scene Classification**<br>
@@ -5182,7 +5174,7 @@ Supporting CodeProject.AI Server 2.9.2.
 <br>
  - **Portrait Filter**<br>
    Provides a depth-of-field (bokeh) effect on images. Great for selfies.<br>
-   v2.2.0 &nbsp; Windows &nbsp; C#, ONNX, DirectML<br>
+   v2.3.0 &nbsp; Windows &nbsp; C#, ONNX, DirectML<br>
    Project by [Matthew Dennis](https://github.com/codeproject/CodeProject.AI-Server/), based on [C# PortraitModeFilter](https://blog.csdn.net/lw112190/article/details/133831461).
 <br>
  - **Super Resolution**<br>
@@ -5196,7 +5188,7 @@ Supporting CodeProject.AI Server 2.9.2.
 
  - **Sentiment Analysis**<br>
    Provides an analysis of the sentiment of a piece of text. Positive or negative?<br>
-   v2.2.0 &nbsp; Windows,  macOS &nbsp; C#, TensorFlow<br>
+   v2.3.0 &nbsp; Windows,  macOS &nbsp; C#, TensorFlow<br>
    Project by [Matthew Dennis](https://github.com/codeproject/CodeProject.AI-Server/), based on [.NET ML Samples](https://github.com/dotnet/samples/tree/main/machine-learning/tutorials/TextClassificationTF).
 <br>
  - **Text Summary**<br>
