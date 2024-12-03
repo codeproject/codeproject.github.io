@@ -1194,6 +1194,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#error-e-repository-httpspackagescloudgooglecomapt-coral-edgetpu-stable-inrelease-changed-its-origin-value-occurs-because-the-repository-metadata-has-changed-and-the-package-manager-requires-confirmation-to-trust-the-updated-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error E: Repository 'https://packages.cloud.google.com/apt coral-edgetpu-stable InRelease' changed its 'Origin' value occurs because the repository metadata has changed, and the package manager requires confirmation to trust the updated information.
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1395,6 +1404,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#error-e-repository-httpspackagescloudgooglecomapt-coral-edgetpu-stable-inrelease-changed-its-origin-value-occurs-because-the-repository-metadata-has-changed-and-the-package-manager-requires-confirmation-to-trust-the-updated-information" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error E: Repository 'https://packages.cloud.google.com/apt coral-edgetpu-stable InRelease' changed its 'Origin' value occurs because the repository metadata has changed, and the package manager requires confirmation to trust the updated information.
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1421,6 +1439,43 @@
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sudo<span class="w"> </span>apt<span class="w"> </span>update
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>dotnet-sdk-7.0
 </code></pre></div>
+<h2 id="error-e-repository-httpspackagescloudgooglecomapt-coral-edgetpu-stable-inrelease-changed-its-origin-value-occurs-because-the-repository-metadata-has-changed-and-the-package-manager-requires-confirmation-to-trust-the-updated-information">Error <code>E: Repository 'https://packages.cloud.google.com/apt coral-edgetpu-stable InRelease' changed its 'Origin' value</code> occurs because the repository metadata has changed, and the package manager requires confirmation to trust the updated information.</h2>
+<ol>
+<li><strong>Update the Repository Information</strong>
+   Force the system to trust the new repository metadata by running:</li>
+</ol>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span>--allow-releaseinfo-change
+</code></pre></div>
+<ol>
+<li><strong>Verify the Repository Configuration</strong>
+   Ensure that the repository is correctly configured in your <code>sources.list</code> or <code>sources.list.d</code> directory. For example:</li>
+</ol>
+<p><div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cat<span class="w"> </span>/etc/apt/sources.list.d/coral-edgetpu.list
+</code></pre></div>
+   Confirm that the URL and distribution are correct. The entry should look something like:</p>
+<div class="highlight"><span class="filename">Text Only</span><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt coral-edgetpu-stable main
+</code></pre></div>
+<ol>
+<li><strong>Remove Any Cached Data</strong>
+   If the error persists, clear the cached repository data and re-run the update:</li>
+</ol>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var/lib/apt/lists/*
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</code></pre></div>
+<ol>
+<li><strong>Re-import the GPG Key (if necessary)</strong>
+   If the repository’s GPG key has also changed or is missing, re-import it:</li>
+</ol>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>curl<span class="w"> </span>-s<span class="w"> </span>https://packages.cloud.google.com/apt/doc/apt-key.gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+</code></pre></div>
+<ol>
+<li><strong>Run the Update and Upgrade</strong>
+   Finally, update and upgrade your system:</li>
+</ol>
+<div class="highlight"><span class="filename">Bash</span><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>upgrade
+</code></pre></div>
+<p>These steps should resolve the issue.</p>
 
 
 
