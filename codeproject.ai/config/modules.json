@@ -2621,7 +2621,7 @@
   {
     "ModuleId": "ObjectDetectionYOLOv5Net",
     "Name": "Object Detection (YOLOv5 .NET)",
-    "Version": "1.13.0",
+    "Version": "1.14.0",
     "PublishingInfo": {
       "Description": "Provides Object Detection using YOLOv5 ONNX models with DirectML. This module is best for those on Windows and Linux without CUDA enabled GPUs",
       "IconURL": null,
@@ -2914,10 +2914,20 @@
           "ModuleVersion": "1.13.0",
           "ServerVersionRange": [
             "2.9.2",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-11-24",
           "ReleaseNotes": "Updated to reflect updated CodeProject.AI SDK",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.14.0",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-12-03",
+          "ReleaseNotes": "Bumped .NET dependencies to 9.0",
           "Importance": null
         }
       ]
@@ -3388,7 +3398,7 @@
   {
     "ModuleId": "PortraitFilter",
     "Name": "Portrait Filter",
-    "Version": "2.3.0",
+    "Version": "2.4.0",
     "PublishingInfo": {
       "Description": "Provides a depth-of-field (bokeh) effect on images. Great for selfies.",
       "IconURL": "",
@@ -3600,10 +3610,20 @@
           "ModuleVersion": "2.3.0",
           "ServerVersionRange": [
             "2.9.2",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-11-24",
           "ReleaseNotes": "Updated to reflect updated CodeProject.AI SDK",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.4.0",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-12-03",
+          "ReleaseNotes": "Bumped .NET dependencies to 9.0",
           "Importance": null
         }
       ]
@@ -3819,7 +3839,7 @@
   {
     "ModuleId": "SentimentAnalysis",
     "Name": "Sentiment Analysis",
-    "Version": "2.3.0",
+    "Version": "2.4.0",
     "PublishingInfo": {
       "Description": "Provides an analysis of the sentiment of a piece of text. Positive or negative?",
       "IconURL": "",
@@ -4032,10 +4052,20 @@
           "ModuleVersion": "2.3.0",
           "ServerVersionRange": [
             "2.9.2",
-            ""
+            "2.9.3"
           ],
           "ReleaseDate": "2024-11-24",
           "ReleaseNotes": "Updated to reflect updated CodeProject.AI SDK",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.4.0",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-12-03",
+          "ReleaseNotes": "Bumped .NET dependencies to 9.0",
           "Importance": null
         }
       ]
@@ -5097,7 +5127,7 @@ Supporting CodeProject.AI Server 2.9.4.
 <br>
  - **Object Detection (YOLOv5 .NET)**<br>
    Provides Object Detection using YOLOv5 ONNX models with DirectML. This module is best for those on Windows and Linux without CUDA enabled GPUs<br>
-   v1.13.0 &nbsp; All Platforms except Windows-arm64 &nbsp; C#, ONNX, DirectML, YOLO<br>
+   v1.14.0 &nbsp; All Platforms except Windows-arm64 &nbsp; C#, ONNX, DirectML, YOLO<br>
    Project by [Matthew Dennis](https://codeproject.github.io/codeproject.ai), based on [yolov5-net](https://github.com/techwingslab/yolov5-net).
 <br>
  - **Object Detection (YOLOv5 3.1)**<br>
@@ -5174,7 +5204,7 @@ Supporting CodeProject.AI Server 2.9.4.
 <br>
  - **Portrait Filter**<br>
    Provides a depth-of-field (bokeh) effect on images. Great for selfies.<br>
-   v2.3.0 &nbsp; Windows &nbsp; C#, ONNX, DirectML<br>
+   v2.4.0 &nbsp; Windows &nbsp; C#, ONNX, DirectML<br>
    Project by [Matthew Dennis](https://github.com/codeproject/CodeProject.AI-Server/), based on [C# PortraitModeFilter](https://blog.csdn.net/lw112190/article/details/133831461).
 <br>
  - **Super Resolution**<br>
@@ -5188,7 +5218,7 @@ Supporting CodeProject.AI Server 2.9.4.
 
  - **Sentiment Analysis**<br>
    Provides an analysis of the sentiment of a piece of text. Positive or negative?<br>
-   v2.3.0 &nbsp; Windows,  macOS &nbsp; C#, TensorFlow<br>
+   v2.4.0 &nbsp; Windows,  macOS &nbsp; C#, TensorFlow<br>
    Project by [Matthew Dennis](https://github.com/codeproject/CodeProject.AI-Server/), based on [.NET ML Samples](https://github.com/dotnet/samples/tree/main/machine-learning/tutorials/TextClassificationTF).
 <br>
  - **Text Summary**<br>
