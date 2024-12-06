@@ -943,7 +943,7 @@
   {
     "ModuleId": "FaceProcessing",
     "Name": "Face Processing",
-    "Version": "1.12.2",
+    "Version": "1.12.3",
     "PublishingInfo": {
       "Description": "A number of Face image APIs including detect, recognize, and compare.",
       "IconURL": null,
@@ -1198,8 +1198,18 @@
             "2.8.0",
             ""
           ],
-          "ReleaseDate": "2024-12-06",
+          "ReleaseDate": "2024-12-05",
           "ReleaseNotes": "Tweaked torch.load for CUDA",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.12.3",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-12-05",
+          "ReleaseNotes": "Corrected req.txt for Windows/CUDA",
           "Importance": null
         }
       ]
@@ -5106,7 +5116,7 @@
 ]
 /*
 
-Supporting CodeProject.AI Server 2.9.4.
+Supporting CodeProject.AI Server 2.9.5.
 
 
 ### Computer Audition
@@ -5176,7 +5186,7 @@ Supporting CodeProject.AI Server 2.9.4.
 
  - **Face Processing**<br>
    A number of Face image APIs including detect, recognize, and compare.<br>
-   v1.12.2 &nbsp; All Platforms except Jetson &nbsp; Python, PyTorch<br>
+   v1.12.3 &nbsp; All Platforms except Jetson &nbsp; Python, PyTorch<br>
    Project by [Chris Maunder, Matthew Dennis](https://github.com/codeproject/CodeProject.AI-Server/), based on [Deepstack](https://github.com/johnolafenwa/DeepStack).
 <br>
 
