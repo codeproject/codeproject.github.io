@@ -2138,7 +2138,7 @@
   {
     "ModuleId": "ObjectDetectionYOLOv5-3.1",
     "Name": "Object Detection (YOLOv5 3.1)",
-    "Version": "1.12.1",
+    "Version": "1.12.2",
     "PublishingInfo": {
       "Description": "Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.",
       "IconURL": null,
@@ -2395,6 +2395,16 @@
           ],
           "ReleaseDate": "2024-11-26",
           "ReleaseNotes": "Support for dual Ubuntu/Debian install",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.12.2",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-12-07",
+          "ReleaseNotes": "Tweaked torch.load for CUDA",
           "Importance": null
         }
       ]
@@ -5152,7 +5162,7 @@ Supporting CodeProject.AI Server 2.9.5.
 <br>
  - **Object Detection (YOLOv5 3.1)**<br>
    Provides Object Detection using YOLOv5 3.1 targeting CUDA 10 or 11 for older GPUs.<br>
-   v1.12.1 &nbsp; All Platforms except macOS &nbsp; Python, PyTorch, YOLO<br>
+   v1.12.2 &nbsp; All Platforms except macOS &nbsp; Python, PyTorch, YOLO<br>
    Project by [Chris Maunder, Matthew Dennis](https://github.com/codeproject/CodeProject.AI-Server/), based on [Deepstack](https://github.com/johnolafenwa/DeepStack).
 <br>
  - **Object Detection (YOLOv5 6.2)**<br>
