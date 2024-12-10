@@ -338,7 +338,7 @@
   {
     "ModuleId": "ALPR-RKNN",
     "Name": "License Plate Reader (RKNN)",
-    "Version": "1.5.0",
+    "Version": "1.6.0",
     "PublishingInfo": {
       "Description": "Detects and readers single-line and multi-line licence plates. This module only works with Rockchip RK3588/RK3588S NPUs like the Orange Pi 5/5B/5 Plus or Radxa ROCK.",
       "IconURL": "",
@@ -505,6 +505,16 @@
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Updated for server 2.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.6.0",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-12-10",
+          "ReleaseNotes": "Updated to use CodeProject.AI SDK",
           "Importance": null
         }
       ]
@@ -1912,7 +1922,7 @@
   {
     "ModuleId": "ObjectDetectionYoloRKNN",
     "Name": "Object Detection (YOLOv5 RKNN)",
-    "Version": "1.8.1",
+    "Version": "1.9.0",
     "PublishingInfo": {
       "Description": "Provides Object Detection using YOLOv5 RKNN models. This module only works with Rockchip RK3588/RK3588S NPUs like the Orange Pi 5/5B/5 Plus",
       "IconURL": "",
@@ -2129,6 +2139,16 @@
           ],
           "ReleaseDate": "2024-08-02",
           "ReleaseNotes": "Corrected Numpy 2.0 issue",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.0",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-12-10",
+          "ReleaseNotes": "Updated to use CodeProject.AI SDK",
           "Importance": null
         }
       ]
@@ -5147,7 +5167,7 @@ Supporting CodeProject.AI Server 2.9.5.
 <br>
  - **License Plate Reader (RKNN)**<br>
    Detects and readers single-line and multi-line licence plates. This module only works with Rockchip RK3588/RK3588S NPUs like the Orange Pi 5/5B/5 Plus or Radxa ROCK.<br>
-   v1.5.0 &nbsp; Orange Pi,  Radxa ROCK &nbsp; Python, FastDeploy<br>
+   v1.6.0 &nbsp; Orange Pi,  Radxa ROCK &nbsp; Python, FastDeploy<br>
    By Mike Lud
 <br>
  - **Object Detection (Coral)**<br>
@@ -5172,7 +5192,7 @@ Supporting CodeProject.AI Server 2.9.5.
 <br>
  - **Object Detection (YOLOv5 RKNN)**<br>
    Provides Object Detection using YOLOv5 RKNN models. This module only works with Rockchip RK3588/RK3588S NPUs like the Orange Pi 5/5B/5 Plus<br>
-   v1.8.1 &nbsp; Orange Pi,  Radxa ROCK &nbsp; Python, FastDeploy, YOLO<br>
+   v1.9.0 &nbsp; Orange Pi,  Radxa ROCK &nbsp; Python, FastDeploy, YOLO<br>
    By Mike Lud
 <br>
  - **Object Detection (YOLOv8)**<br>
