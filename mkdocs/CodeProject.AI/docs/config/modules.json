@@ -2,7 +2,7 @@
   {
     "ModuleId": "ALPR",
     "Name": "License Plate Reader",
-    "Version": "3.3.3",
+    "Version": "3.3.4",
     "PublishingInfo": {
       "Description": "Detects and readers single-line and multi-line license plates using YOLO object detection and the PaddleOCR toolkit",
       "IconURL": "",
@@ -329,6 +329,16 @@
           ],
           "ReleaseDate": "2024-11-29",
           "ReleaseNotes": "Corrections for CUDA 11.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "3.3.4",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-12-11",
+          "ReleaseNotes": "Corrections for Linux arm64",
           "Importance": null
         }
       ]
@@ -1922,7 +1932,7 @@
   {
     "ModuleId": "ObjectDetectionYoloRKNN",
     "Name": "Object Detection (YOLOv5 RKNN)",
-    "Version": "1.9.0",
+    "Version": "1.9.1",
     "PublishingInfo": {
       "Description": "Provides Object Detection using YOLOv5 RKNN models. This module only works with Rockchip RK3588/RK3588S NPUs like the Orange Pi 5/5B/5 Plus",
       "IconURL": "",
@@ -2149,6 +2159,16 @@
           ],
           "ReleaseDate": "2024-12-10",
           "ReleaseNotes": "Updated to use CodeProject.AI SDK",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "1.9.1",
+          "ServerVersionRange": [
+            "2.8.0",
+            ""
+          ],
+          "ReleaseDate": "2024-12-10",
+          "ReleaseNotes": "Corrected requirements.txt",
           "Importance": null
         }
       ]
@@ -2451,7 +2471,9 @@
       "Platforms": [
         "all",
         "!raspberrypi",
-        "!jetson"
+        "!orangepi",
+        "!jetson",
+        "!radxarock"
       ],
       "ModuleReleases": [
         {
@@ -3192,7 +3214,7 @@
   {
     "ModuleId": "OCR",
     "Name": "Optical Character Recognition",
-    "Version": "2.2.3",
+    "Version": "2.2.4",
     "PublishingInfo": {
       "Description": "Provides OCR support using the PaddleOCR toolkit",
       "IconURL": "",
@@ -3439,6 +3461,16 @@
           ],
           "ReleaseDate": "2024-11-29",
           "ReleaseNotes": "Corrections for CUDA 11.8",
+          "Importance": null
+        },
+        {
+          "ModuleVersion": "2.2.4",
+          "ServerVersionRange": [
+            "2.9.4",
+            ""
+          ],
+          "ReleaseDate": "2024-12-11",
+          "ReleaseNotes": "Corrections for Linux arm64",
           "Importance": null
         }
       ]
@@ -5146,7 +5178,7 @@
 ]
 /*
 
-Supporting CodeProject.AI Server 2.9.5.
+Supporting CodeProject.AI Server 2.9.6.
 
 
 ### Computer Audition
@@ -5162,7 +5194,7 @@ Supporting CodeProject.AI Server 2.9.5.
 
  - **License Plate Reader**<br>
    Detects and readers single-line and multi-line license plates using YOLO object detection and the PaddleOCR toolkit<br>
-   v3.3.3 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
+   v3.3.4 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
    By Mike Lud
 <br>
  - **License Plate Reader (RKNN)**<br>
@@ -5187,12 +5219,12 @@ Supporting CodeProject.AI Server 2.9.5.
 <br>
  - **Object Detection (YOLOv5 6.2)**<br>
    Provides Object Detection using YOLOv5 6.2 targeting CUDA 11.5+, PyTorch < 2.0 for newer GPUs.<br>
-   v1.10.0 &nbsp; All Platforms except Raspberry Pi,  Jetson &nbsp; <br>
+   v1.10.0 &nbsp; All Platforms except Raspberry Pi,  Orange Pi,  Jetson,  Radxa ROCK &nbsp; <br>
    Project by [Matthew Dennis](https://codeproject.github.io/codeproject.ai), based on [Ultralytics YOLOv5](https://github.com/ultralytics/yolov5).
 <br>
  - **Object Detection (YOLOv5 RKNN)**<br>
    Provides Object Detection using YOLOv5 RKNN models. This module only works with Rockchip RK3588/RK3588S NPUs like the Orange Pi 5/5B/5 Plus<br>
-   v1.9.0 &nbsp; Orange Pi,  Radxa ROCK &nbsp; Python, FastDeploy, YOLO<br>
+   v1.9.1 &nbsp; Orange Pi,  Radxa ROCK &nbsp; Python, FastDeploy, YOLO<br>
    By Mike Lud
 <br>
  - **Object Detection (YOLOv8)**<br>
@@ -5202,7 +5234,7 @@ Supporting CodeProject.AI Server 2.9.5.
 <br>
  - **Optical Character Recognition**<br>
    Provides OCR support using the PaddleOCR toolkit<br>
-   v2.2.3 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
+   v2.2.4 &nbsp; All Platforms except Windows-arm64 &nbsp; Python, PaddlePaddle<br>
    By Mike Lud
 <br>
  - **Scene Classification**<br>
